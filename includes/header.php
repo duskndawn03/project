@@ -49,8 +49,6 @@
                             </ul>
                         </li>
 
-                        <li><a href="<?php echo $baseurl; ?>/pages/ipealumni/ipealumni.php">IPE AlUMNIES</a></li>
-
                         <li><a href="#">PLANNING & PROCUREMENT</a>
                             <ul class="dropdown">
                                 <li><a href="<?php echo $baseurl; ?>/pages/business.php">BUSINESS DIRECTORY</a></li>
@@ -59,13 +57,17 @@
                                 <li><a href="<?php echo $baseurl; ?>/shop.php">SERVICES</a></li>
                             </ul>
                         </li>
+                        
+                        <li><a href="<?php echo $baseurl; ?>/pages/ipealumni/ipealumni.php">AlUMNIES</a></li>
+
                         <li><a href="<?php echo $baseurl; ?>/shop.php">NEWS & CIRCULARS</a></li>
+                        
                         <li><a href="#">CONTACT US</a>
                             <ul class="dropdown">
                                 <li><a href="<?php echo $baseurl; ?>/shop.php">ABOUT US</a></li>
                             </ul>
                         </li>
-                        
+                
                     </ul>
                 </nav>
             </div>

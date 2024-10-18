@@ -31,9 +31,9 @@ include 'config/baseurl.php';
     <style type="text/css">
         .notice-bar {
             width: 100%;
-            background-color: blue;
+            background-color: #ffcc00;
             color: #333;
-            padding: 10px 0;
+            padding: 5px 0;
             overflow: hidden;
             position: relative;
             text-align: center;
@@ -56,38 +56,10 @@ include 'config/baseurl.php';
             }
         }
 
-
-        /* custom slider code */
-        .carousel-inner {
-            padding: 1em;
-        }
-
         .card {
             margin: 0 0.5em;
             box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
             border: none;
-        }
-
-        .carousel-control-prev,
-        .carousel-control-next {
-            background-color: #e1e1e1;
-            width: 6vh;
-            height: 6vh;
-            border-radius: 50%;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        @media (min-width: 768px) {
-            .carousel-item {
-                margin-right: 0;
-                flex: 0 0 33.333333%;
-                display: block;
-            }
-
-            .carousel-inner {
-                display: flex;
-            }
         }
 
         .card .img-wrapper {
@@ -162,62 +134,17 @@ include 'config/baseurl.php';
         </div>
     </div>
 
-    <!-- <div class="container-fluid">
-    <div class="row no-gutters">
-        <div class="notice-bar">
-            <div class="notice-text">
-                <p>⚠️ Special Offer: Get 20% off on all items! Limited time only! ⚠️</p>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
-
-    <!-- <div class="instagram">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                <a href="#">
-                    <div class="instagram__item set-bg" data-setbg="<?php echo $baseurl; ?>/assets/img/instagram/insta-3.jpg">
-                        <div class="instagram__text">
-                            Be Smart with Us
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                <a href="#">
-                    <div class="instagram__item set-bg" data-setbg="<?php echo $baseurl; ?>/assets/img/instagram/insta-4.jpg">
-                        <div class="instagram__text">
-                            Find Your Dream Job
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                <a href="#">
-                    <div class="instagram__item set-bg" data-setbg="<?php echo $baseurl; ?>/assets/img/instagram/insta-1.jpg">
-                        <div class="instagram__text">
-                            Biggest Business Directory and Product Showcase
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                <a href="#">
-                    <div class="instagram__item set-bg" data-setbg="<?php echo $baseurl; ?>/assets/img/instagram/insta-2.jpg">
-                        <div class="instagram__text">
-                            Ipe Newsletters
-                        </div>
-                    </div>
-                </a>
+        <div class="row no-gutters">
+            <div class="notice-bar">
+                <div class="notice-text">
+                    <p>⚠️ Special Offer: Get 20% off on all items! Limited time only! ⚠️</p>
+                </div>
             </div>
         </div>
     </div>
-</div> -->
+
+
     <div class="container-fluid"> <!-- Full-width container -->
         <div class="row no-gutters"> <!-- Remove padding between columns -->
             <!-- First grid item (4 grid spaces) -->
@@ -263,10 +190,6 @@ include 'config/baseurl.php';
             </div>
         </div>
     </div>
-
-
-
-    <!-- Instagram End -->
 
     <?php include 'includes/footer.php'; ?>
 

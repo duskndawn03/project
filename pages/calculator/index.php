@@ -163,8 +163,8 @@
                 <h2>Converters</h2>
                 <ul class="custom-ul">
                     <li class="custom-li"><a href="<?php echo $baseurl;?>/pages/calculator/lengthconverter.php">Length Converter</a></li>
-                    <li class="custom-li">Area Converter</li>
-                    <li class="custom-li">Weight Converter</li>
+                    <li class="custom-li"><a href="<?php echo $baseurl;?>/pages/calculator/areacalc.php">Area Converter</a></li>
+                    <li class="custom-li"><a href="<?php echo $baseurl;?>/pages/calculator/weightandmass.php">Weight Converter</a></li>
                     <li class="custom-li">Temperature Converter</li>
                 </ul>
                 <a href="#">See more</a>
