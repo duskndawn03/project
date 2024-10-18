@@ -22,70 +22,6 @@
     <link rel="stylesheet" href="<?php echo $baseurl;?>/assets/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="<?php echo $baseurl;?>/assets/css/style.css" type="text/css">
 
-    <style>
-
-        input, button {
-            padding: 10px;
-            margin: 10px;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        .output {
-            margin-top: 20px;
-        }
-
-        /* Style for form layout */
-        .form-group {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 10px auto;
-            max-width: 400px;
-
-        }
-
-        .form-group label {
-            width: 120px;
-            text-align: left;
-            margin-right: 10px;
-        }
-
-        .form-group input {
-            flex-grow: 1;
-        }
-
-        /* Align fields for output results */
-        .result-group {
-            margin: 20px auto;
-            max-width: 600px;
-        }
-
-        .result-group label {
-            width: 150px;
-            text-align: left;
-        }
-
-        /* Redesigned Holidays and Workdays Section */
-        .section {
-            display: flex;
-            justify-content: space-between;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .section div {
-            text-align: left;
-            flex-basis: 45%;
-        }
-
-    </style>
-
 </head>
 
 <body>
@@ -95,15 +31,15 @@
     <div class="container-fluid">
         <div class="row no-gutters">
             <div class="col-lg-3 col-md-3">
-                
-            </div>
-            <div class="col-lg-6 col-md-6">
                 <!-- Age Calculator Section -->
                 <h2>Age Calculator</h2>
                 <p>Enter your Date of Birth:</p>
                 <input type="date" id="dob" class="form-control w-50 mx-auto">
                 <button class="btn btn-success mt-3" onclick="calculateAge()">Calculate Age</button>
                 <h4 id="ageResult" class="output"></h4>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                
 
 
 
