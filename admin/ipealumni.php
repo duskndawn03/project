@@ -126,6 +126,8 @@ $columns = [
                         foreach ($columns as $column => $header) {
                             if ($visibility[$column]) {
                                 echo "<th>{$header}</th>";
+                            }else {
+                                echo "<th style='color:red'>{$header}</th>";
                             }
                         }
                         echo "<th>Action</th>";
@@ -143,6 +145,8 @@ $columns = [
                             foreach ($columns as $column => $header) {
                                 if ($visibility[$column]) {
                                     echo "<td>{$row[$column]}</td>";
+                                }else {
+                                    echo "<td style='color:red'>{$row[$column]}</td>";
                                 }
                             }
                             echo "<td>
