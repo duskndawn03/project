@@ -28,6 +28,31 @@ include '../config/baseurl.php';
     <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/style.css" type="text/css">
 
+    <style>
+        .card {
+            margin: 0 0.5em;
+            /* box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18); */
+            border: solid 1px rgba(50, 50, 50, 0.18);
+        }
+
+        .card .img-wrapper {
+            max-width: 100%;
+            height: 13em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card img {
+            max-height: 100%;
+        }
+
+        @media (max-width: 767px) {
+            .card .img-wrapper {
+                height: 17em;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -35,25 +60,18 @@ include '../config/baseurl.php';
     <?php include '../includes/header.php'; ?>
     <!-- Header Section End -->
 
-    <div class="w-100 letter_search_bar my-4">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col">
-                    <ul class="letter_search p-0 text-center list-inline">
-                        <?php
-                        for ($char = 65; $char <= 90; $char++) {
-                            // echo chr($char) . " ";
-                            echo '<li style="font-size: 29px;" class="list-inline-item"><a href="' . $baseurl . '/category/search/' . strtolower(chr($char)) . '"><span class="badge badge-primary">' . chr($char) . '</span></a></li> ';
-                        }
-                        ?>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    
     <div class="container-fluid">
-        <div class="row"> <!-- Add no-gutters to remove extra padding between columns -->
+        <div class="row no-gutters justify-content-center">
+            <ul class="list-inline">
+                <?php
+                for ($char = 65; $char <= 90; $char++) {
+                    // echo chr($char) . " ";
+                    echo '<li style="font-size: 29px;" class="list-inline-item"><a href="' . $baseurl . '/category/search/' . strtolower(chr($char)) . '"><span class="badge badge-primary">' . chr($char) . '</span></a></li> ';
+                }
+                ?>
+            </ul>
+        </div>
+        <div class="row no-gutters"> <!-- Add no-gutters to remove extra padding between columns -->
             <!-- First grid item (3 grid spaces) -->
             <div class="col-lg-3 col-md-3 col-sm-12">
                 <div class="card mb-4">
@@ -76,7 +94,7 @@ include '../config/baseurl.php';
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Main Slide</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.lorem ipsum is a dummy text lorem ipsum is a dummy text lorem ipsum is a dummy text lorem ipsum is a dummy text</p>
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
@@ -96,7 +114,7 @@ include '../config/baseurl.php';
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center mt-4">
+        <div class="row no-gutters justify-content-center">
             <div class="col-md-8">
                 <form class="form-inline justify-content-center">
                     <!-- First Input Field: Find Business -->
@@ -120,7 +138,7 @@ include '../config/baseurl.php';
                 </form>
             </div>
         </div>
-        <div class="row"> <!-- Add no-gutters to remove extra padding between columns -->
+        <div class="row no-gutters mt-4"> <!-- Add no-gutters to remove extra padding between columns -->
             <!-- First grid item (3 grid spaces) -->
             <div class="col-lg-3 col-md-3 col-sm-12">
                 <div class="card mb-4">
@@ -143,7 +161,7 @@ include '../config/baseurl.php';
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Main Slide</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.lorem ipsum is a dummy text lorem ipsum is a dummy text lorem ipsum is a dummy text lorem ipsum is a dummy text</p>
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>

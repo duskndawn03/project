@@ -1,0 +1,29 @@
+<div class="w-100 letter_search_bar my-4">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col">
+                    <ul class="letter_search p-0 text-center list-inline">
+                        <?php
+                        for ($char = 65; $char <= 90; $char++) {
+                            // echo chr($char) . " ";
+                            echo '<li style="font-size: 29px;" class="list-inline-item"><a href="' . $baseurl . '/category/search/' . strtolower(chr($char)) . '"><span class="badge badge-primary">' . chr($char) . '</span></a></li> ';
+                        }
+                        ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <ul class="list-inline">
+                <?php
+                    for ($char = 65; $char <= 90; $char++) {
+                        // echo chr($char) . " ";
+                        echo '<li style="font-size: 29px;" class="list-inline-item"><a href="' . $baseurl . '/category/search/' . strtolower(chr($char)) . '"><span class="badge badge-primary">' . chr($char) . '</span></a></li> ';
+                    }
+                ?>
+            </ul>
+        </div>
+    </div>

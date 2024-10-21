@@ -58,8 +58,8 @@ include 'config/baseurl.php';
 
         .card {
             margin: 0 0.5em;
-            box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
-            border: none;
+            /* box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18); */
+            border: solid 1px rgba(50, 50, 50, 0.18);
         }
 
         .card .img-wrapper {
@@ -87,7 +87,6 @@ include 'config/baseurl.php';
     <?php include 'includes/header.php'; ?>
     <!-- Header Section End -->
 
-
     <div class="container-fluid"> <!-- Change container to container-fluid for full-width -->
         <div class="row no-gutters"> <!-- Add no-gutters to remove extra padding between columns -->
             <!-- First grid item (3 grid spaces) -->
@@ -112,7 +111,7 @@ include 'config/baseurl.php';
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Main Slide</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.lorem ipsum is a dummy text lorem ipsum is a dummy text lorem ipsum is a dummy text lorem ipsum is a dummy text</p>
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
@@ -132,21 +131,17 @@ include 'config/baseurl.php';
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row no-gutters">
-            <div class="notice-bar">
-                <div class="notice-text">
-                    <p>⚠️ Special Offer: Get 20% off on all items! Limited time only! ⚠️</p>
+        
+        <!-- Notice Bar -->
+        <div class="row">
+            <div class="col-12">
+                <div class="notice-bar text-center py-2" style="background-color: #ffcc00; color: #000;">
+                    <strong>Notice:</strong> This is a sample notice text!
                 </div>
             </div>
         </div>
-    </div>
 
-
-    <div class="container-fluid"> <!-- Full-width container -->
-        <div class="row no-gutters"> <!-- Remove padding between columns -->
+        <div class="row no-gutters mt-4"> <!-- Remove padding between columns -->
             <!-- First grid item (4 grid spaces) -->
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="card mb-4">
@@ -169,7 +164,7 @@ include 'config/baseurl.php';
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Main Slide</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.lorem ipsum is a dummy text lorem ipsum is a dummy text lorem ipsum is a dummy text lorem ipsum is a dummy text</p>
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
