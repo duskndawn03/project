@@ -60,8 +60,12 @@
                         
                         <li><a href="<?php echo $baseurl; ?>/pages/ipealumni/ipealumni.php">AlUMNIES</a></li>
 
-                        <li><a href="<?php echo $baseurl; ?>/shop.php">NEWS & CIRCULARS</a></li>
-                        
+                        <li><a href="#">NEWS & CIRCULARS</a>
+                            <ul class="dropdown">
+                                <li><a href="<?php echo $baseurl; ?>/news/news.php">NEWS</a></li>
+                                <li><a href="<?php echo $baseurl; ?>/pages/jobs/jobs.php">JOB CIRCULARS</a></li>
+                            </ul>
+                        </li>
                         <li><a href="#">CONTACT US</a>
                             <ul class="dropdown">
                                 <li><a href="<?php echo $baseurl; ?>/shop.php">ABOUT US</a></li>

@@ -165,7 +165,7 @@
                     <li class="custom-li"><a href="<?php echo $baseurl;?>/pages/calculator/lengthconverter.php">Length Converter</a></li>
                     <li class="custom-li"><a href="<?php echo $baseurl;?>/pages/calculator/areacalc.php">Area Converter</a></li>
                     <li class="custom-li"><a href="<?php echo $baseurl;?>/pages/calculator/weightandmass.php">Weight Converter</a></li>
-                    <li class="custom-li">Temperature Converter</li>
+                    <li class="custom-li"><a href="<?php echo $baseurl;?>/pages/calculator/tempconv.php">Tempature Converter</a></li>
                 </ul>
                 <a href="#">See more</a>
             </div>
