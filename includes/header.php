@@ -31,19 +31,19 @@
 <header class="header">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xl-3 col-lg-2">
+            <div class="col-xl-1 col-lg-1">
                 <div class="header__logo">
                     <a href="<?php echo $baseurl; ?>/"><img src="<?php echo $baseurl; ?>/assets/img/logo.png" alt=""></a>
                 </div>
             </div>
-            <div class="col-xl-6 col-lg-7">
+            <div class="col-xl-8 col-lg-8">
                 <nav class="header__menu">
                     <ul>
                         <li class="active"><a href="<?php echo $baseurl; ?>/">Home</a></li>
 
                         <li><a href="#">STUDY MATERIAL</a>
                             <ul class="dropdown">
-                                <li><a href="#">BOOKS</a></li>
+                                <li><a href="<?php echo $baseurl; ?>/pages/books/books.php">BOOKS</a></li>
                                 <li><a href="#">COURSES</a></li>
                                 <li><a href="<?php echo $baseurl; ?>/pages/calculator/">CALCULATORS</a></li>
                             </ul>
