@@ -122,6 +122,7 @@ $columns = [
             <table id="alumniTable" class="table table-striped table-bordered nowrap" style="width:100%">
                 <thead>
                     <tr>
+                        <th>#</th> <!-- New column for serial numbers -->
                         <?php
                         foreach ($columns as $column => $header) {
                             if ($visibility[$column]) {
@@ -142,6 +143,7 @@ $columns = [
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>";
+                            echo "<td></td>"; // Empty cell for the serial number
                             foreach ($columns as $column => $header) {
                                 if ($visibility[$column]) {
                                     echo "<td>{$row[$column]}</td>";
@@ -159,7 +161,7 @@ $columns = [
                             echo "</tr>";
                         }
                     } else {
-                        echo "<tr><td colspan='22' class='text-center'>No records found</td></tr>";
+                        echo "<tr><td colspan='23' class='text-center'>No records found</td></tr>";
                     }
                     ?>
                 </tbody>
@@ -347,7 +349,11 @@ $columns = [
                         responsivePriority: 2,
                         targets: 0
                     } // Prioritize the first column (Sl No.)
-                ]
+                ],
+                "createdRow": function(row, data, index) {
+                    // Add the serial number to the first column
+                    $('td', row).eq(0).html(index + 1);
+                }
             });
         });
 
