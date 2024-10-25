@@ -1,5 +1,19 @@
 <?php
 include '../../config/baseurl.php';
+include '../../config/config.php';
+
+// Fetch jobs from the database
+$sql = "SELECT * FROM jobs";
+$result = $conn->query($sql);
+$jobs = [];
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $jobs[] = $row; // Store jobs in an array
+    }
+}
+
+// Default selected job
+$selectedJob = !empty($jobs) ? $jobs[0] : null;
 ?>
 
 <!DOCTYPE html>
@@ -86,7 +100,7 @@ include '../../config/baseurl.php';
     <!-- Header Section Begins -->
     <?php include '../../includes/header.php'; ?>
     <!-- Header Section End -->
-    
+
     <br>
     <div class="container-fluid">
         <div class="row">
@@ -159,10 +173,11 @@ include '../../config/baseurl.php';
                     </div>
                     <div class="col-md-4">
                         <select class="form-control">
-                            <option selected>Organization Type</option>
-                            <option value="1">Corporate</option>
-                            <option value="2">Startup</option>
-                            <option value="3">Government</option>
+                            <option selected>Organization or company name</option>
+                            <option value="1">Area or Location</option>
+                            <option value="2">Job Position or designation</option>
+                            <option value="3">Job category</option>
+                            <option value="4">Salary range</option>
                         </select>
                     </div>
                     <div class="col-md-4">
@@ -172,6 +187,55 @@ include '../../config/baseurl.php';
             </div>
         </div>
     </div>
+
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- First Grid - Job List -->
+            <div class="col-md-3">
+                <?php foreach ($jobs as $job): ?>
+                    <div class="card mb-3 job-card" data-job-id="<?php echo $job['id']; ?>">
+                        <div class="card-body">
+                            <h5 class="card-title d-flex justify-content-between align-items-center">
+                                <?php echo htmlspecialchars($job['jobs_post_name']); ?>
+                                <span class="badge bg-info"><?php echo htmlspecialchars($job['jobs_expertise_level']); ?></span>
+                            </h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><?php echo htmlspecialchars($job['jobs_company_name']); ?></h6>
+                            <p class="card-text"><?php echo htmlspecialchars($job['jobs_skills']); ?></p>
+                            <p class="card-text"><?php echo htmlspecialchars($job['jobs_description']); ?></p>
+                            <p class="card-text"><strong>Salary:</strong> $<?php echo htmlspecialchars($job['jobs_salary']); ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+
+            <!-- Second Grid - Selected Job Details -->
+            <div class="col-md-7">
+                <div class="card">
+                    <div class="card-body">
+                        <h5><?php echo htmlspecialchars($selectedJob['jobs_post_name']); ?></h5>
+                        <h6 class="text-muted"><?php echo htmlspecialchars($selectedJob['jobs_company_name']); ?></h6>
+                        <p><?php echo htmlspecialchars($selectedJob['jobs_skills']); ?></p>
+                        <p><?php echo htmlspecialchars($selectedJob['jobs_description']); ?></p>
+                        <p><strong>Salary:</strong> $<?php echo htmlspecialchars($selectedJob['jobs_salary']); ?></p>
+                        <p><strong>Expertise Level:</strong> <?php echo htmlspecialchars($selectedJob['jobs_expertise_level']); ?></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Grid - Advertisement -->
+            <div class="col-md-2">
+                <div class="card">
+                    <img src="<?php echo $baseurl; ?>/assets/img/instagram/insta-1.jpg" class="card-img-top" alt="Advertisement">
+                    <div class="card-body">
+                        <h5 class="card-title">Advertisement Title</h5>
+                        <p class="card-text">This is an advertisement description that will provide more details about the ad.</p>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End of Row -->
+    </div> <!-- End of Container Fluid -->
+
 
 
     <?php include '../../includes/footer.php'; ?>
