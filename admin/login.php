@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include 'db_connection.php';
+include 'config/db_connection.php';
 
 // Check for login form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

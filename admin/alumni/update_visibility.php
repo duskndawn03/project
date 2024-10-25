@@ -1,6 +1,6 @@
 <?php
 // Include your DB connection file
-include 'db_connection.php';
+include '../config/db_connection.php';
 
 // Prepare to update visibility settings
 // Fetch all column names first to ensure you handle all columns

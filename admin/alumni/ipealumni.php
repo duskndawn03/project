@@ -1,6 +1,6 @@
 <?php
-include '../baseurl.php';
-include '../db_connection.php';
+include '../config/baseurl.php';
+include '../config/db_connection.php';
 
 // Fetch column visibility settings
 $visibilityQuery = "SELECT column_name, is_visible FROM column_visibility";

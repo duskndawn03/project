@@ -1,6 +1,6 @@
 <?php
 // Include database connection
-include '../db_connection.php';
+include '../config/db_connection.php';
 
 // Set headers to trigger a CSV file download
 header('Content-Type: text/csv; charset=utf-8');

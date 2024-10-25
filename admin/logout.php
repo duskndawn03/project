@@ -6,6 +6,6 @@ session_unset();
 session_destroy();
 
 // Redirect to login page
-header("Location: index.php");
+header("Location: https://ipework.free.nf/admin/");
 exit();
 ?>
