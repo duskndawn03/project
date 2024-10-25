@@ -1,6 +1,6 @@
 <?php
 // Database connection
-include 'db_connection.php';
+include '../db_connection.php';
 
 // Check if alumni_id is provided
 if (isset($_POST['alumni_id'])) {

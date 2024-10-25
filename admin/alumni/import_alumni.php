@@ -1,6 +1,6 @@
 <?php
 // Database connection
-include 'db_connection.php';
+include '../db_connection.php';
 
 if (isset($_POST) && isset($_FILES['csvFile'])) {
     $fileName = $_FILES['csvFile']['tmp_name'];
