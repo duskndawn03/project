@@ -1,6 +1,6 @@
 <?php
 // Include database connection
-include '../../config/config.php';
+include '../../config/db_connection.php';
 include '../../config/baseurl.php';
 
 // Check if the category parameter is set in the GET request

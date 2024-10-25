@@ -64,7 +64,7 @@ include '../../config/baseurl.php';
                 </div>
                 <div class="table-responsive">
                     <?php
-                    include '../../config/config.php';
+                    include '../../config/db_connection.php';
 
                     // Fetch the visible columns
                     $visibility_sql = "SELECT column_name FROM column_visibility WHERE is_visible = 1";

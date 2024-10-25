@@ -1,6 +1,6 @@
 <?php
 include '../../config/baseurl.php';
-include '../../config/config.php';
+include '../../config/db_connection.php';
 
 // Fetch jobs from the database
 $sql = "SELECT * FROM jobs";

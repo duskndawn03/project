@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 // echo var_dump($_POST);
 // echo "</pre>";
 // exit();
-include 'config.php'; // Include your database connection file
+include 'db_connection.php'; // Include your database connection file
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get form data

@@ -1,5 +1,5 @@
 <?php
-include '../../config/config.php'; // Make sure to adjust path for DB connection
+include '../../config/db_connection.php'; // Make sure to adjust path for DB connection
 
 header('Content-Type: application/json');
 
