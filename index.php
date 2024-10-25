@@ -93,7 +93,7 @@ include 'config/baseurl.php';
             <div class="col-lg-3 col-md-3 col-sm-12">
                 <div class="card mb-4">
                     <div class="img-wrapper">
-                        <img src="<?php echo $baseurl; ?>/assets/img/instagram/photo1.jpg" class="card-img-top" alt="...">
+                        <img src="<?php echo $baseurl; ?>/assets/img/instagram/insta-1.jpg" class="card-img-top" alt="...">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Advertisement Portion</h5>
@@ -146,7 +146,7 @@ include 'config/baseurl.php';
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="card mb-4">
                     <div class="img-wrapper">
-                        <img src="<?php echo $baseurl; ?>/assets/img/instagram/insta-1.jpg" class="card-img-top" alt="...">
+                        <img src="<?php echo $baseurl; ?>/assets/img/instagram/photo1.jpg" class="card-img-top" alt="...">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Advertisement Portion</h5>

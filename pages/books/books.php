@@ -1,5 +1,6 @@
 <?php
 include '../../config/baseurl.php';
+include '../../config/config.php';
 ?>
 
 <!DOCTYPE html>
@@ -102,261 +103,63 @@ include '../../config/baseurl.php';
     </div>
     <!-- Breadcrumb End -->
 
+    <!-- search section begins -->
+    <div class="container mt-3">
+        <input type="text" id="searchInput" class="form-control" placeholder="Search for books by name, author, or category...">
+        <div id="searchResults" class="row mt-3"></div>
+    </div>
+    <!-- search section ends -->
+
     <!-- Book Section Begin -->
     <section class="shop spad">
         <div class="container">
-            <div class="row">
-                <!-- <div class="col-lg-3 col-md-3">
-                    <div class="shop__sidebar">
-                        <div class="sidebar__categories">
-                            <div class="section-title">
-                                <h4>Categories</h4>
-                            </div>
-                            <div class="categories__accordion">
-                                <div class="accordion" id="accordionExample">
-                                    <div class="card">
-                                        <div class="card-heading active">
-                                            <a data-toggle="collapse" data-target="#collapseOne">Women</a>
+            <?php
+                // Fetch book categories from the database
+                $sql = "SELECT * FROM book_category";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    // Output each book category
+                    while ($row = $result->fetch_assoc()) {
+                        echo '<h3>' . htmlspecialchars($row["book_category"]) . '</h3>';
+                        echo '<br>';
+
+                        // Fetch book details based on category
+                        $category = $row["book_category"];
+                        $details_sql = "SELECT * FROM book_details WHERE book_details_category = '$category'";
+                        $details_result = $conn->query($details_sql);
+
+                        echo '<div class="row">';
+                        if ($details_result->num_rows > 0) {
+                            while ($details_row = $details_result->fetch_assoc()) {
+                                echo '<div class="col-lg-3 col-md-3">
+                                    <div class="product__item">
+                                        <div class="product__item__pic set-bg" data-setbg="' . $baseurl . '/assets/img/shop/shop-1.jpg">
+                                            <div class="label new">New</div>
+                                            <ul class="product__hover">
+                                                <li><a href="' . $baseurl . '/assets/img/shop/' . htmlspecialchars($details_row["book_details_image"]) . '" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                                
+                                            </ul>
                                         </div>
-                                        <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
-                                            <div class="card-body">
-                                                <ul>
-                                                    <li><a href="#">Coats</a></li>
-                                                    <li><a href="#">Jackets</a></li>
-                                                    <li><a href="#">Dresses</a></li>
-                                                    <li><a href="#">Shirts</a></li>
-                                                    <li><a href="#">T-shirts</a></li>
-                                                    <li><a href="#">Jeans</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-heading">
-                                            <a data-toggle="collapse" data-target="#collapseTwo">Men</a>
-                                        </div>
-                                        <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
-                                            <div class="card-body">
-                                                <ul>
-                                                    <li><a href="#">Coats</a></li>
-                                                    <li><a href="#">Jackets</a></li>
-                                                    <li><a href="#">Dresses</a></li>
-                                                    <li><a href="#">Shirts</a></li>
-                                                    <li><a href="#">T-shirts</a></li>
-                                                    <li><a href="#">Jeans</a></li>
-                                                </ul>
-                                            </div>
+                                        <div class="product__item__text">
+                                            <h5><a href="#">' . htmlspecialchars($details_row["book_details_name"]) . '</a></h5>
+                                            <h6><a href="#">' . htmlspecialchars($details_row["book_details_author"]) . '</a></h6>
                                         </div>
                                     </div>
-                                    <div class="card">
-                                        <div class="card-heading">
-                                            <a data-toggle="collapse" data-target="#collapseThree">Kids</a>
-                                        </div>
-                                        <div id="collapseThree" class="collapse" data-parent="#accordionExample">
-                                            <div class="card-body">
-                                                <ul>
-                                                    <li><a href="#">Coats</a></li>
-                                                    <li><a href="#">Jackets</a></li>
-                                                    <li><a href="#">Dresses</a></li>
-                                                    <li><a href="#">Shirts</a></li>
-                                                    <li><a href="#">T-shirts</a></li>
-                                                    <li><a href="#">Jeans</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-heading">
-                                            <a data-toggle="collapse" data-target="#collapseFour">Accessories</a>
-                                        </div>
-                                        <div id="collapseFour" class="collapse" data-parent="#accordionExample">
-                                            <div class="card-body">
-                                                <ul>
-                                                    <li><a href="#">Coats</a></li>
-                                                    <li><a href="#">Jackets</a></li>
-                                                    <li><a href="#">Dresses</a></li>
-                                                    <li><a href="#">Shirts</a></li>
-                                                    <li><a href="#">T-shirts</a></li>
-                                                    <li><a href="#">Jeans</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-heading">
-                                            <a data-toggle="collapse" data-target="#collapseFive">Cosmetic</a>
-                                        </div>
-                                        <div id="collapseFive" class="collapse" data-parent="#accordionExample">
-                                            <div class="card-body">
-                                                <ul>
-                                                    <li><a href="#">Coats</a></li>
-                                                    <li><a href="#">Jackets</a></li>
-                                                    <li><a href="#">Dresses</a></li>
-                                                    <li><a href="#">Shirts</a></li>
-                                                    <li><a href="#">T-shirts</a></li>
-                                                    <li><a href="#">Jeans</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sidebar__filter">
-                            <div class="section-title">
-                                <h4>Shop by price</h4>
-                            </div>
-                            <div class="filter-range-wrap">
-                                <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                data-min="33" data-max="99"></div>
-                                <div class="range-slider">
-                                    <div class="price-input">
-                                        <p>Price:</p>
-                                        <input type="text" id="minamount">
-                                        <input type="text" id="maxamount">
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">Filter</a>
-                        </div>
-                        <div class="sidebar__sizes">
-                            <div class="section-title">
-                                <h4>Shop by size</h4>
-                            </div>
-                            <div class="size__list">
-                                <label for="xxs">
-                                    xxs
-                                    <input type="checkbox" id="xxs">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="xs">
-                                    xs
-                                    <input type="checkbox" id="xs">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="xss">
-                                    xs-s
-                                    <input type="checkbox" id="xss">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="s">
-                                    s
-                                    <input type="checkbox" id="s">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="m">
-                                    m
-                                    <input type="checkbox" id="m">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="ml">
-                                    m-l
-                                    <input type="checkbox" id="ml">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="l">
-                                    l
-                                    <input type="checkbox" id="l">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="xl">
-                                    xl
-                                    <input type="checkbox" id="xl">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="sidebar__color">
-                            <div class="section-title">
-                                <h4>Shop by size</h4>
-                            </div>
-                            <div class="size__list color__list">
-                                <label for="black">
-                                    Blacks
-                                    <input type="checkbox" id="black">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="whites">
-                                    Whites
-                                    <input type="checkbox" id="whites">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="reds">
-                                    Reds
-                                    <input type="checkbox" id="reds">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="greys">
-                                    Greys
-                                    <input type="checkbox" id="greys">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="blues">
-                                    Blues
-                                    <input type="checkbox" id="blues">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="beige">
-                                    Beige Tones
-                                    <input type="checkbox" id="beige">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="greens">
-                                    Greens
-                                    <input type="checkbox" id="greens">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="yellows">
-                                    Yellows
-                                    <input type="checkbox" id="yellows">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                <div class="col-lg-12 col-md-12">
-                    <div class="row no-gutters">
-                        <?php
-                        for ($i = 1; $i <= 8; $i++) {
-                            echo '<div class="col-lg-3 col-md-3">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="' . $baseurl . '/assets/img/shop/shop-1.jpg">
-                                        <div class="label new">New</div>
-                                        <ul class="product__hover">
-                                            <li><a href="' . $baseurl . '/assets/img/shop/shop-1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <h6><a href="#">Furry hooded parka</a></h6>
-                                        <div class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <div class="product__price">$ 59.0</div>
-                                    </div>
-                                </div>
-                            </div>';
+                                </div>';
+                            }
+                        } else {
+                            echo "<p>No books found in this category.</p>";
                         }
-                        ?>
-
-
-                        <div class="col-lg-12 text-center">
-                            <div class="pagination__option">
-                                <a href="#">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <a href="#"><i class="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        echo '</div><br>'; // Close the row for this category and add a line break
+                        echo '<div class="text-center">
+                            <a href="view_all_books.php?category=' . urlencode($category) . '" class="btn btn-primary">View All</a>
+                        </div><br>';
+                    }
+                } else {
+                    echo "<p>No categories found.</p>";
+                }
+                ?>
         </div>
     </section>
     <!-- Book Section End -->
@@ -374,6 +177,65 @@ include '../../config/baseurl.php';
     <script src="<?php echo $baseurl; ?>/assets/js/owl.carousel.min.js"></script>
     <script src="<?php echo $baseurl; ?>/assets/js/jquery.nicescroll.min.js"></script>
     <script src="<?php echo $baseurl; ?>/assets/js/main.js"></script>
+
+    <script>
+        // Debounce function to limit the number of AJAX requests
+        function debounce(func, delay) {
+            let timer;
+            return function(...args) {
+                clearTimeout(timer);
+                timer = setTimeout(() => func.apply(this, args), delay);
+            };
+        }
+
+        $(document).ready(function() {
+            $('#searchInput').on('keyup', debounce(function() {
+                let searchQuery = $(this).val().trim();
+
+                // Only make the AJAX request if there's a search term
+                if (searchQuery.length > 0) {
+                    $.ajax({
+                        url: 'search_books.php',  // Endpoint to handle search
+                        type: 'GET',
+                        data: { query: searchQuery },
+                        dataType: 'json',
+                        success: function(data) {
+                            let resultsHtml = '';
+
+                            if (data.length > 0) {
+                                data.forEach(function(book) {
+                                    resultsHtml += `
+                                        <div class="col-lg-3 col-md-3 mb-3">
+                                            <div class="product__item">
+                                                <div class="product__item__pic set-bg" style="background-image: url('${book.image}');">
+                                                    <div class="label new">New</div>
+                                                </div>
+                                                <div class="product__item__text">
+                                                    <h5><a href="#">${book.name}</a></h5>
+                                                    <h6>Author: ${book.author}</h6>
+                                                    <p>Category: ${book.category}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    `;
+                                });
+                            } else {
+                                resultsHtml = '<p>No results found for your search.</p>';
+                            }
+
+                            $('#searchResults').html(resultsHtml);
+                        },
+                        error: function() {
+                            $('#searchResults').html('<p>Error loading search results.</p>');
+                        }
+                    });
+                } else {
+                    $('#searchResults').empty(); // Clear results if search is empty
+                }
+            }, 300)); // Debounce delay of 300ms
+        });
+    </script>
+
 
 </body>
 
