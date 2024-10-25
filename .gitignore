@@ -1,1 +1,3 @@
 .vscode/
+admin/db_connection.php
+config/config.php
