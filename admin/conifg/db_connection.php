@@ -1,10 +1,10 @@
 <?php
 // Database connection
 $conn = new mysqli(
-    'sql312.infinityfree.com', // Server name
-    'if0_37327540',            // Username
-    'gCO3gr9sy4XcYx',          // Password
-    'if0_37327540_ipework'     // Database name
+    'sql102.infinityfree.com', // Server name
+    'if0_37597009',            // Username
+    'AxczMz9ydpN',          // Password
+    'if0_37597009_ipework'     // Database name
 );
 
 // Check connection

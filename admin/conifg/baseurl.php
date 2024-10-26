@@ -1,3 +1,3 @@
 <?php
-$baseurl = "https://ipework.free.nf";
+$baseurl = "https://ipework.rf.gd";
 ?>

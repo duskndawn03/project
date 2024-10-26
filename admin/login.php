@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class="login-container">
     <h2>Login</h2>
-    <form action="index.php" method="POST">
+    <form action="login.php" method="POST">
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required placeholder="Enter your email">
