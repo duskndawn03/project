@@ -89,6 +89,7 @@ include '../../config/baseurl.php';
                     <table id="alumniTable" class="table table-striped table-bordered nowrap" style="width:100%">
                         <thead>
                             <tr>
+                                <th>#</th> <!-- New column for serial numbers -->
                                 <?php foreach ($columns_to_display as $column): ?>
                                     <th><?php echo ucfirst(str_replace('_', ' ', $column)); ?></th>
                                 <?php endforeach; ?>
@@ -100,6 +101,7 @@ include '../../config/baseurl.php';
                                 // Output data of each row
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr>";
+                                    echo "<td></td>"; // Empty cell for the serial number
                                     foreach ($columns_to_display as $column) {
                                         if ($column === 'fb_id_link' || $column === 'linkedin_id_link') {
                                             echo "<td><a href='{$row[$column]}'>" . ucfirst(explode('_', $column)[0]) . "</a></td>";
@@ -110,7 +112,7 @@ include '../../config/baseurl.php';
                                     echo "</tr>";
                                 }
                             } else {
-                                echo "<tr><td colspan='" . count($columns_to_display) . "' class='text-center'>No records found</td></tr>";
+                                echo "<tr><td colspan='" . count($columns_to_display + 1) . "' class='text-center'>No records found</td></tr>";
                             }
                             ?>
                         </tbody>
@@ -160,15 +162,17 @@ include '../../config/baseurl.php';
                 searching: true,
                 ordering: true,
                 responsive: true, // Enable responsive extension
-                columnDefs: [{
-                        responsivePriority: 1,
-                        targets: -1
-                    }, // Prioritize actions column
-                    {
-                        responsivePriority: 2,
-                        targets: 0
-                    } // Prioritize the first column (Sl No.)
-                ]
+                columnDefs: [
+                    { responsivePriority: 1, targets: 0 }, // Serial number
+                    { responsivePriority: 2, targets: 5 }, // Name
+                    { responsivePriority: 3, targets: 4 }, // Roll no
+                    { responsivePriority: 4, targets: 1 }, // Graduation institute
+                    { responsivePriority: 5, targets: 3 }  // Batch name no
+                ],
+                "createdRow": function(row, data, index) {
+                    // Add the serial number to the first column
+                    $('td', row).eq(0).html(index + 1);
+                }
             });
         });
     </script>
