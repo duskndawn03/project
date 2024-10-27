@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['email'])) {
-    header('Location: login.php');
+    header("Location: login.php");
     exit();
 }
 ?>
@@ -35,7 +35,7 @@ if (!isset($_SESSION['email'])) {
                 <a class="nav-link" href="#">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="ipealumni.php">IPE Alumni</a>
+                <a class="nav-link" href="alumni/ipealumni.php">IPE Alumni</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Products</a>

@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include 'config/db_connection.php';
+include '../config/db_connection.php';
 
 // Check for login form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Verify the password
     if ($stmt->num_rows > 0 && password_verify($password, $hashed_password)) {
         $_SESSION['email'] = $db_email; // Store email in the session
-        header('Location: index.php'); // Redirect to index.php after successful login
+        header("Location: index.php"); // Redirect to index.php after successful login
         exit();
     } else {
         $login_error = "Invalid credentials!";

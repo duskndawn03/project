@@ -1,6 +1,7 @@
 <?php
 // Include your DB connection file
-include '../config/db_connection.php';
+include '../../config/baseurl.php';
+include '../../config/db_connection.php';
 
 // Prepare to update visibility settings
 // Fetch all column names first to ensure you handle all columns
@@ -33,6 +34,6 @@ foreach ($allColumns as $columnName) {
 $stmt->close();
 
 // Redirect back to the original page after updating
-header("Location: https://ipework.free.nf/admin/ipealumni.php");
+header("Location: {$baseurl}/admin/alumni/ipealumni.php");
 exit();
 ?>

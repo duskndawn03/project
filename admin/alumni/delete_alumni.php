@@ -1,6 +1,6 @@
 <?php
 // Database connection
-include '../config/db_connection.php';
+include '../../config/db_connection.php';
 
 // Get the POST input from the AJAX request
 // Since the data is sent as form data, you can access it via $_POST

@@ -1,6 +1,7 @@
 <?php
 // Database connection
-include '../config/db_connection.php';
+include '../../config/baseurl.php';
+include '../../config/db_connection.php';
 
 // Check if alumni_id is provided
 if (isset($_POST['alumni_id'])) {
@@ -60,7 +61,7 @@ if (isset($_POST['alumni_id'])) {
     // Execute the statement
     if ($stmt->execute()) {
         // Redirect back to the main page after successful update
-        header("Location: https://ipework.free.nf/admin/ipealumni.php");
+        header("Location: {$baseurl}/admin/alumni/ipealumni.php");
         exit();
     } else {
         echo "Error updating record: " . $conn->error;
