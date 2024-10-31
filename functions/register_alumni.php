@@ -1,4 +1,5 @@
 <?php
+
 session_start(); // Start the session
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -7,7 +8,7 @@ ini_set('display_errors', 1);
 // echo var_dump($_POST);
 // echo "</pre>";
 // exit();
-include 'db_connection.php'; // Include your database connection file
+include "../config/db_connection.php"; // Adjusted path
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get form data
@@ -71,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->execute()) {
         // Set success message in session and redirect back to the original page
         $_SESSION['success_message'] = 'Registration successful';
-        header('Location: alumniregistration.php'); // Redirect back to the registration page
+        header("Location: /pages/alumni/alumnireg.php"); // Redirect back to the registration page
         exit();
     } else {
         echo "Error: " . $stmt->error;

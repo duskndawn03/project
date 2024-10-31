@@ -5,7 +5,7 @@ include '../../config/baseurl.php';
 
 // Check if the category parameter is set in the GET request
 if (!isset($_GET['category']) || empty($_GET['category'])) {
-    echo "<p>Error: Category not specified. Please return to the <a href='".$baseurl."/pages/books/books.php'>Books</a>.</p>";
+    echo "<p>Error: Category not specified. Please return to the <a href='".$baseurl."/pages/books/'>Books</a>.</p>";
     exit;
 }
 

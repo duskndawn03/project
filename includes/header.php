@@ -14,7 +14,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Study</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="<?php echo $baseurl; ?>/pages/books/books.php">Books</a></li>
+                        <li><a class="dropdown-item" href="<?php echo $baseurl; ?>/pages/books/">Books</a></li>
                         <li><a class="dropdown-item" href="#">Courses</a></li>
                         <li><a class="dropdown-item" href="<?php echo $baseurl; ?>/pages/calculator/">Calculator</a></li>
                     </ul>
@@ -31,7 +31,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo $baseurl; ?>/pages/ipealumni/ipealumni.php">Alumnies</a>
+                    <a class="nav-link" href="<?php echo $baseurl; ?>/pages/alumni/">Alumnies</a>
                 </li>
 
                 <li class="nav-item dropdown">
