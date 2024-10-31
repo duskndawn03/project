@@ -6,29 +6,22 @@ include '../../config/baseurl.php';
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Ashion Template">
-    <meta name="keywords" content="Ashion, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>IPE Alumni</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/style.css" type="text/css">
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery UI CDN -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
-    <!-- Bootstrap CSS -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css">
     <!-- DataTables Responsive Extension CSS -->
@@ -139,21 +132,10 @@ include '../../config/baseurl.php';
     <!-- Footer Section Begin -->
     <?php include '../../includes/footer.php';?>
 
-    <!-- Js Plugins -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/bootstrap.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/jquery-ui.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/mixitup.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/jquery.countdown.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/jquery.slicknav.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/owl.carousel.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/jquery.nicescroll.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/main.js"></script>
+    
     <!-- DataTables JS -->
     <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script> -->
 
     <script>
         $(document).ready(function() {

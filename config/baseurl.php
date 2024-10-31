@@ -1,3 +1,3 @@
 <?php
-$baseurl = "https://ipework.rf.gd";
+$baseurl = 'https://'.$_SERVER['SERVER_NAME'];
 ?>

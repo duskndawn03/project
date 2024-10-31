@@ -17,46 +17,23 @@ $category = $_GET['category'];
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Ashion Template">
-    <meta name="keywords" content="Ashion, unica, creative, html">
+    <title>All books</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery UI CDN -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
     <style type="text/css">
-        .notice-bar {
-            width: 100%;
-            background-color: #ffcc00;
-            color: #333;
-            padding: 5px 0;
-            overflow: hidden;
-            position: relative;
-            text-align: center;
-        }
-
-        .notice-text p {
-            display: inline-block;
-            white-space: nowrap;
-            animation: scroll-left 15s linear infinite;
-            font-weight: bold;
-        }
-
+        
         @keyframes scroll-left {
             0% {
                 transform: translateX(100%);
@@ -98,26 +75,22 @@ $category = $_GET['category'];
     <?php include '../../includes/header.php'; ?>
     <!-- Header Section End -->
 
-    <!-- Breadcrumb Begin -->
-    <div class="breadcrumb-option">
+     <!-- Breadcrumb Begin -->
+    <nav aria-label="breadcrumb" class="bg-light py-3">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb__links">
-                        <a href="<?php echo $baseurl; ?>/"><i class="fa fa-home"></i> Home</a>
-                        <span>Books</span>
-                    </div>
-                </div>
-            </div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="<?php echo $baseurl; ?>/"><i class="fa fa-home"></i> Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Books</li>
+        </ol>
         </div>
-    </div>
+    </nav>
     <!-- Breadcrumb End -->
 
     <!-- Book Section Begin -->
-    <section class="shop spad">
+    <section class="py-0">
         <div class="container">
             <?php
-            echo '<h3>' . htmlspecialchars($category) . '</h3><br>';
+            echo '<h3>' . htmlspecialchars($category) . '</h3>';
             // Fetch all books in the specified category
             $sql = "SELECT * FROM book_details WHERE book_details_category = ?";
             $stmt = $conn->prepare($sql);
@@ -125,47 +98,57 @@ $category = $_GET['category'];
             $stmt->execute();
             $result = $stmt->get_result();
 
-            echo '<div class="row">';
+            echo '<div class="row g-4">';
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    echo '<div class="col-lg-3 col-md-3">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="' . $baseurl . '/assets/img/shop/shop-1.jpg">
-                                <div class="label new">New</div>
-                                <ul class="product__hover">
-                                    <li><a href="' . $baseurl . '/assets/img/shop/' . htmlspecialchars($row["book_details_image"]) . '" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                    
-                                </ul>
-                            </div>
-                            <div class="product__item__text">
-                                <h5><a href="#">' . htmlspecialchars($row["book_details_name"]) . '</a></h5>
-                                <h6><a href="#">' . htmlspecialchars($row["book_details_author"]) . '</a></h6>
-                            </div>
+                    echo "
+                    <div class='col-lg-3 col-md-4 col-sm-6'>
+                        <div class='card'>
+                        <img src='{$baseurl}/assets/img/shop/shop-1.jpg' class='card-img-top' alt='Book Image'>
+                        <div class='card-body'>
+                            <span class='badge bg-success mb-2'>New</span>
+                            <h5 class='card-title'>" . htmlspecialchars($row["book_details_name"]) . "</h5>
+                            <p class='card-text'>" . htmlspecialchars($row["book_details_author"]) . "</p>
+                            <a href='{$baseurl}/assets/img/shop/shop-1.jpg' class='btn btn-outline-primary btn-sm' data-bs-toggle='modal' data-bs-target='#imageModal'>View Image</a>
                         </div>
-                    </div>';
+                        </div>
+                    </div>";
                 }
             } else {
-                echo "<p>No books found in this category.</p>";
+                echo "<p class='col-12'>No books found in this category.</p>";
             }
             echo '</div>';
             ?>
         </div>
-    </section>
+        </section>
+        <!-- Book Section End -->
+
+        <!-- Image Modal -->
+        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel">Book Image</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img id="modalImage" src="" alt="Book Image" class="img-fluid">
+            </div>
+            </div>
+        </div>
+        </div>
     <!-- Book Section End -->
 
     <?php include '../../includes/footer.php'; ?>
 
-    <!-- Js Plugins -->
-    <script src="<?php echo $baseurl; ?>/assets/js/jquery-3.3.1.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/bootstrap.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/jquery-ui.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/mixitup.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/jquery.countdown.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/jquery.slicknav.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/owl.carousel.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/jquery.nicescroll.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/main.js"></script>
+    <script>
+        // Load image into modal
+        document.querySelectorAll('.btn-outline-primary').forEach(button => {
+            button.addEventListener('click', function() {
+            document.getElementById('modalImage').src = this.getAttribute('href');
+            });
+        });
+    </script>
 
 </body>
 
