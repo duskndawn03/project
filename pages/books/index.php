@@ -66,10 +66,10 @@ include '../../config/db_connection.php';
   <!-- Header Section End -->
 
   <!-- Breadcrumb Begin -->
-  <nav aria-label="breadcrumb" class="bg-light py-3">
+  <nav aria-label="breadcrumb" class="py-3">
     <div class="container">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="<?php echo $baseurl; ?>/"><i class="fa fa-home"></i> Home</a></li>
+        <li class="breadcrumb-item"><a style="text-decoration: none;" href="<?php echo $baseurl; ?>/"><i class="fa fa-home"></i> Home</a></li>
         <li class="breadcrumb-item active" aria-current="page">Books</li>
       </ol>
     </div>
@@ -77,7 +77,7 @@ include '../../config/db_connection.php';
   <!-- Breadcrumb End -->
 
   <!-- Search Section Begin -->
-  <div class="container my-4">
+  <div class="container my-3">
     <input type="text" id="searchInput" class="form-control" placeholder="Search for books by name, author, or category...">
     <div id="searchResults" class="row mt-3"></div>
   </div>

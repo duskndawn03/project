@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-sm">
     <div class="container-fluid">
         <a class="navbar-brand" href="<?php echo $baseurl; ?>/"><img src="<?php echo $baseurl; ?>/assets/img/logo.png" alt="Logo"></a>
+        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -51,8 +52,17 @@
             </ul>
             <form class="d-flex">
                 <input class="form-control me-2" type="text" placeholder="Search">
-                <button class="btn btn-outline-primary" type="button">Search</button>
+                <button class="btn btn-outline-primary" type="button">
+                    <i class="fa fa-search"></i>
+                </button>
             </form>
+
+            <!-- Dark Mode Toggle Button -->
+            <button id="toggleTheme" class="btn btn-outline-secondary ms-2">
+                <i class="fa fa-sun-o" id="themeIcon"></i>
+                <!-- <span id="themeText"> Toggle Dark Mode</span> -->
+            </button>
+
         </div>
     </div>
 </nav>
