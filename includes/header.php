@@ -1,6 +1,7 @@
-<nav class="navbar navbar-expand-sm">
+<nav class="navbar navbar-expand-sm border-bottom">
     <div class="container-fluid">
         <a class="navbar-brand" href="<?php echo $baseurl; ?>/"><img src="<?php echo $baseurl; ?>/assets/img/logo.png" alt="Logo"></a>
+        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -16,17 +17,17 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="<?php echo $baseurl; ?>/pages/books/">Books</a></li>
                         <li><a class="dropdown-item" href="#">Courses</a></li>
-                        <li><a class="dropdown-item" href="<?php echo $baseurl; ?>/pages/calculator/">Calculator</a></li>
+                        <li><a class="dropdown-item" href="<?php echo $baseurl; ?>/pages/calculators/">Calculators</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Planning</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="<?php echo $baseurl; ?>/pages/business.php">Business Directory</a></li>
+                        <li><a class="dropdown-item" href="<?php echo $baseurl; ?>/pages/business/">Business Directory</a></li>
                         <li><a class="dropdown-item" href="<?php echo $baseurl; ?>/pages/products/">Products</a></li>
-                        <li><a class="dropdown-item" href="<?php echo $baseurl; ?>/shop.php">Planning Materials</a></li>
-                        <li><a class="dropdown-item" href="<?php echo $baseurl; ?>/shop.php">Services</a></li>
+                        <li><a class="dropdown-item" href="#">Planning Materials</a></li>
+                        <li><a class="dropdown-item" href="#">Services</a></li>
                     </ul>
                 </li>
 
@@ -37,22 +38,31 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">News</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="<?php echo $baseurl; ?>/news/news.php">News</a></li>
-                        <li><a class="dropdown-item" href="<?php echo $baseurl; ?>/pages/jobs/jobs.php">Jobs</a></li>
+                        <li><a class="dropdown-item" href="#">News</a></li>
+                        <li><a class="dropdown-item" href="<?php echo $baseurl; ?>/pages/jobs/">Jobs</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Contact Us</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="<?php echo $baseurl; ?>/pages/business.php">About Us</a></li>
+                        <li><a class="dropdown-item" href="#">About Us</a></li>
                     </ul>
                 </li>
             </ul>
             <form class="d-flex">
                 <input class="form-control me-2" type="text" placeholder="Search">
-                <button class="btn btn-outline-primary" type="button">Search</button>
+                <button class="btn btn-outline-primary" type="button">
+                    <i class="fa fa-search"></i>
+                </button>
             </form>
+
+            <!-- Dark Mode Toggle Button -->
+            <button id="toggleTheme" class="btn btn-outline-secondary ms-2">
+                <i class="fa fa-sun-o" id="themeIcon"></i>
+                <!-- <span id="themeText"> Toggle Dark Mode</span> -->
+            </button>
+
         </div>
     </div>
 </nav>

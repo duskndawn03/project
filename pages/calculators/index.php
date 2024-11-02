@@ -25,7 +25,7 @@
 
     <?php include '../../includes/header.php'; ?>
 
-    <div class="container">
+    <div class="container mt-4">
 
         <div class="row">
             <div class="col-md-3 mb-4">
@@ -55,7 +55,7 @@
 
             <div class="col-md-3 mb-4">
                 <div class="card">
-                    <h2 class="card-header">Personal Finance</h2>
+                    <h2 class="card-header">Finance</h2>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Mortgage Calculator</li>
                         <li class="list-group-item">Loan Calculator</li>

@@ -1,5 +1,5 @@
 <!-- Footer Section Begin -->
-<footer class="container-fluid">
+<footer class="container-fluid border-top">
     <div class="row g-0">
         <div class="col-lg-4 col-md-6 col-sm-7">
             <div class="text-center p-3">
@@ -72,3 +72,59 @@
     </div>
 </footer>
 <!-- Footer Section End -->
+
+<!-- implementing dark mode -->
+<script>
+    // Function to check and set the initial theme
+    function setInitialTheme() {
+        const htmlElement = document.documentElement; // Access the <html> element
+        const currentTheme = htmlElement.getAttribute('data-bs-theme');
+
+        // If the theme is not set or is not "dark", set it to "light"
+        if (currentTheme !== 'dark') {
+            htmlElement.setAttribute('data-bs-theme', 'light');
+        }
+    }
+
+    // Call the function to set the initial theme
+    setInitialTheme();
+
+    // Toggle theme on button click
+    document.getElementById('toggleTheme').addEventListener('click', function() {
+        const htmlElement = document.documentElement; // Access the <html> element
+        const currentTheme = htmlElement.getAttribute('data-bs-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        // Toggle the theme
+        htmlElement.setAttribute('data-bs-theme', newTheme);
+        localStorage.setItem('theme', newTheme); // Save theme preference
+        
+        // Change button icon and text
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+
+        if (newTheme === 'dark') {
+            themeIcon.classList.remove('fa-sun-o');
+            themeIcon.classList.add('fa-moon-o');
+            themeText.textContent = ' Toggle Light Mode';
+        } else {
+            themeIcon.classList.remove('fa-moon-o');
+            themeIcon.classList.add('fa-sun-o');
+            themeText.textContent = ' Toggle Dark Mode';
+        }
+    });
+
+    // Check for saved theme in local storage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-bs-theme', savedTheme);
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+
+        if (savedTheme === 'dark') {
+            themeIcon.classList.remove('fa-sun-o');
+            themeIcon.classList.add('fa-moon-o');
+            themeText.textContent = ' Toggle Light Mode';
+        }
+    }
+</script>

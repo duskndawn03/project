@@ -1,5 +1,6 @@
 <?php
 include '../../config/baseurl.php';
+include '../../config/db_connection.php';
 ?>
 
 <!DOCTYPE html>
@@ -55,9 +56,8 @@ include '../../config/baseurl.php';
                     <!-- Register Button -->
                     <a href="alumnireg.php" class="btn btn-primary">Register</a>
                 </div>
-                <div class="table-responsive">
+                <div class="table-responsive border">
                     <?php
-                    include '../../config/db_connection.php';
 
                     // Fetch the visible columns
                     $visibility_sql = "SELECT column_name FROM column_visibility WHERE is_visible = 1";
@@ -79,7 +79,7 @@ include '../../config/baseurl.php';
                     $result = $conn->query($sql);
                     ?>
 
-                    <table id="alumniTable" class="table table-striped table-bordered nowrap" style="width:100%">
+                    <table id="alumniTable" class="table table-bordered nowrap border" style="width:100%">
                         <thead>
                             <tr>
                                 <th>#</th> <!-- New column for serial numbers -->

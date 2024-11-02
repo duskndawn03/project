@@ -1,32 +1,26 @@
 <?php
-include '../config/baseurl.php';
+include '../../config/baseurl.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="description" content="Ashion Template">
-  <meta name="keywords" content="Ashion, unica, creative, html">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Business Directory</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Css Styles -->
-  <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/bootstrap.min.css" type="text/css">
-  <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/elegant-icons.css" type="text/css">
-  <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/jquery-ui.min.css" type="text/css">
-  <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/magnific-popup.css" type="text/css">
-  <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/owl.carousel.min.css" type="text/css">
-  <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/slicknav.min.css" type="text/css">
-  <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/style.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- jQuery UI CDN -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
 
   <style>
     .card {
@@ -57,11 +51,11 @@ include '../config/baseurl.php';
 
 <body>
   <!-- Header Section Begin -->
-  <?php include '../includes/header.php'; ?>
+  <?php include '../../includes/header.php'; ?>
   <!-- Header Section End -->
 
   <div class="container-fluid">
-    <div class="row no-gutters justify-content-center">
+    <div class="row g-0 justify-content-center">
       <ul class="list-inline">
         <?php
         for ($char = 65; $char <= 90; $char++) {
@@ -71,7 +65,7 @@ include '../config/baseurl.php';
         ?>
       </ul>
     </div>
-    <div class="row no-gutters"> <!-- Add no-gutters to remove extra padding between columns -->
+    <div class="row g-0"> <!-- Add no-gutters to remove extra padding between columns -->
       <!-- First grid item (3 grid spaces) -->
       <div class="col-lg-3 col-md-3 col-sm-12">
         <div class="card mb-4">
@@ -114,7 +108,7 @@ include '../config/baseurl.php';
         </div>
       </div>
     </div>
-    <div class="row no-gutters justify-content-center">
+    <div class="row g-0 justify-content-center">
       <div class="col-md-8">
         <form class="form-inline justify-content-center">
           <!-- First Input Field: Find Business -->
@@ -138,7 +132,7 @@ include '../config/baseurl.php';
         </form>
       </div>
     </div>
-    <div class="row no-gutters mt-4"> <!-- Add no-gutters to remove extra padding between columns -->
+    <div class="row g-0 mt-4"> <!-- Add no-gutters to remove extra padding between columns -->
       <!-- First grid item (3 grid spaces) -->
       <div class="col-lg-3 col-md-3 col-sm-12">
         <div class="card mb-4">
@@ -183,19 +177,8 @@ include '../config/baseurl.php';
     </div>
   </div>
 
-  <?php include '../includes/footer.php'; ?>
+  <?php include '../../includes/footer.php'; ?>
 
-  <!-- Js Plugins -->
-  <script src="<?php echo $baseurl; ?>/assets/js/jquery-3.3.1.min.js"></script>
-  <script src="<?php echo $baseurl; ?>/assets/js/bootstrap.min.js"></script>
-  <script src="<?php echo $baseurl; ?>/assets/js/jquery.magnific-popup.min.js"></script>
-  <script src="<?php echo $baseurl; ?>/assets/js/jquery-ui.min.js"></script>
-  <script src="<?php echo $baseurl; ?>/assets/js/mixitup.min.js"></script>
-  <script src="<?php echo $baseurl; ?>/assets/js/jquery.countdown.min.js"></script>
-  <script src="<?php echo $baseurl; ?>/assets/js/jquery.slicknav.js"></script>
-  <script src="<?php echo $baseurl; ?>/assets/js/owl.carousel.min.js"></script>
-  <script src="<?php echo $baseurl; ?>/assets/js/jquery.nicescroll.min.js"></script>
-  <script src="<?php echo $baseurl; ?>/assets/js/main.js"></script>
 </body>
 
 </html>

@@ -4,90 +4,27 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Ashion Template">
-    <meta name="keywords" content="Ashion, unica, creative, html">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Area Calculator</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $baseurl; ?>/assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery UI CDN -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
     <style type="text/css">
-        .notice-bar {
-            width: 100%;
-            background-color: #ffcc00;
-            color: #333;
-            padding: 10px 0;
-            overflow: hidden;
-            position: relative;
-            text-align: center;
-        }
-
-        .notice-text p {
-            display: inline-block;
-            white-space: nowrap;
-            animation: scroll-left 15s linear infinite;
-            font-weight: bold;
-        }
-
-        @keyframes scroll-left {
-            0% {
-                transform: translateX(100%);
-            }
-
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-
-        /* custom slider code */
-        .carousel-inner {
-            padding: 1em;
-        }
-
         .card {
             margin: 0 0.5em;
             box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
             border: none;
         }
-
-        .carousel-control-prev,
-        .carousel-control-next {
-            background-color: #e1e1e1;
-            width: 6vh;
-            height: 6vh;
-            border-radius: 50%;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        @media (min-width: 768px) {
-            .carousel-item {
-                margin-right: 0;
-                flex: 0 0 33.333333%;
-                display: block;
-            }
-
-            .carousel-inner {
-                display: flex;
-            }
-        }
-
         .card .img-wrapper {
             max-width: 100%;
             height: 13em;
@@ -314,17 +251,6 @@
 
     <?php include '../../includes/footer.php'; ?>
 
-    <!-- Js Plugins -->
-    <script src="<?php echo $baseurl; ?>/assets/js/jquery-3.3.1.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/bootstrap.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/jquery-ui.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/mixitup.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/jquery.countdown.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/jquery.slicknav.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/owl.carousel.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/jquery.nicescroll.min.js"></script>
-    <script src="<?php echo $baseurl; ?>/assets/js/main.js"></script>
     <!-- JavaScript for Unit Conversion -->
     <script>
         function ucUpdateResult() {
