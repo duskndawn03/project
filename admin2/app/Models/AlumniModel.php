@@ -32,8 +32,7 @@ class AlumniModel extends Model
     ];
 
     // Optionally, method to get alumni with specific visibility
-    public function getAlumniWithVisibility($visibility)
-    {
+    public function getAlumniWithVisibility($visibility){
         $columns = [];
         foreach ($visibility as $column => $isVisible) {
             if ($isVisible) {
@@ -41,5 +40,42 @@ class AlumniModel extends Model
             }
         }
         return $this->select($columns)->findAll();
+    }
+    
+    public function updateApproval($id) {
+        // Get the current approval status
+        $currentApproval = $this->select('approval')->where('sl_no', $id)->get()->getRow();
+        
+        // Check if alumni exists
+        if (!$currentApproval) {
+            return false; // Alumni not found
+        }
+    
+        $currentApproval = $currentApproval->approval;
+        
+        // Toggle the approval status
+        $newApproval = ($currentApproval === 'pending') ? 'granted' : 'pending';
+        
+        // Update the approval status in the database
+        return $this->set('approval', $newApproval)->where('sl_no', $id)->update();
+    }
+
+    // Method to delete an alumni record by ID
+    public function deleteAlumniById($id) {
+        // Perform the delete operation
+        return $this->where('sl_no', $id)->delete();
+    }
+
+    // Method to get all alumni data
+    public function getAllAlumni() {
+        return $this->findAll(); // Get all alumni data from the table
+    }
+
+    // Method to insert multiple alumni records from CSV data
+    public function insertAlumniFromCSV($alumniData) {
+        if (!empty($alumniData)) {
+            return $this->insertBatch($alumniData);
+        }
+        return false;
     }
 }

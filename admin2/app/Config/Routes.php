@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\AlumniController;
 use CodeIgniter\Router\RouteCollection;
 
 /**
@@ -7,6 +8,11 @@ use CodeIgniter\Router\RouteCollection;
  */
 //routes for handling functionalities
 $routes->post('/loginauth', 'LoginController::loginauth');
+$routes->post('/alumni/updateVisibility', 'AlumniController::updateVisibility');
+$routes->post('/alumni/updateApproval', 'AlumniController::updateApproval');
+$routes->post('/alumni/deleteAlumni', 'AlumniController::deleteAlumni');
+$routes->get('/alumni/exportAlumni', 'AlumniController::exportAlumni');
+$routes->post('/alumni/importAlumni', 'AlumniController::importAlumni');
 $routes->get('/home', 'Home::index');
 
 //routes for pages
