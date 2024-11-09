@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alumni</title>
 
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Latest Bootstrap CSS (v5.3.2) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- DataTables CSS -->
@@ -93,10 +95,11 @@
                                 }
                             }
                             echo "<td>
-                        <button class='btn btn-info btn-sm' onclick='editAlumni({$row['sl_no']})'>Edit</button>
-                        <button class='btn btn-danger btn-sm' onclick='deleteAlumni({$row['sl_no']})'>Delete</button>
+                        <button class='btn btn-info btn-sm' onclick='editAlumni({$row['sl_no']})'><i class='fa fa-pencil' aria-hidden='true'></i></button>
+                        <button class='btn btn-danger btn-sm' onclick='deleteAlumni({$row['sl_no']})'><i class='fa fa-trash' aria-hidden='true'></i></button>
                         <button class='btn btn-sm " . ($row['approval'] == 'pending' ? 'btn-warning' : 'btn-success') . "' onclick='toggleApproval({$row['sl_no']})'>
-                            " . ($row['approval'] == 'granted' ? 'Granted' : 'Pending') . "
+                            " . ($row['approval'] == 'granted' ? '<i class="fa fa-check-circle" aria-hidden="true" style="color: green;"></i>
+' : '<i class="fa fa-clock-o" aria-hidden="true" style="color: orange;"></i>') . "
                         </button>
                     </td>";
                             echo "</tr>";
@@ -119,7 +122,7 @@
                 foreach ($columns as $column => $header) {
                     // Determine the checked state of the checkbox based on visibility
                     $isChecked = isset($visibility[$column]) && $visibility[$column] == 1 ? 'checked' : '';
-                    
+
                     // Add hidden field to send "0" when unchecked
                     echo '<div class="form-check">
                             <!-- Hidden field to ensure 0 is sent when checkbox is unchecked -->
@@ -164,9 +167,66 @@
                                 <label for="roll_no">Roll No</label>
                                 <input type="text" class="form-control" name="roll_no" id="roll_no" required>
                             </div>
-
-                            <!-- Additional form fields here as needed... -->
-
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" name="name" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact_no">Contact No</label>
+                                <input type="text" class="form-control" name="contact_no" id="contact_no" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email_address">Email Address</label>
+                                <input type="email" class="form-control" name="email_address" id="email_address" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="additional_contact">Additional Contact</label>
+                                <input type="text" class="form-control" name="additional_contact" id="additional_contact">
+                            </div>
+                            <div class="form-group">
+                                <label for="additional_email">Additional Email</label>
+                                <input type="email" class="form-control" name="additional_email" id="additional_email">
+                            </div>
+                            <div class="form-group">
+                                <label for="fb_id_link">Facebook Link</label>
+                                <input type="text" class="form-control" name="fb_id_link" id="fb_id_link">
+                            </div>
+                            <div class="form-group">
+                                <label for="linkedin_id_link">LinkedIn Link</label>
+                                <input type="text" class="form-control" name="linkedin_id_link" id="linkedin_id_link">
+                            </div>
+                            <div class="form-group">
+                                <label for="blood_group">Blood Group</label>
+                                <input type="text" class="form-control" name="blood_group" id="blood_group">
+                            </div>
+                            <div class="form-group">
+                                <label for="current_occupation">Current Occupation</label>
+                                <input type="text" class="form-control" name="current_occupation" id="current_occupation">
+                            </div>
+                            <div class="form-group">
+                                <label for="institution_name">Institution Name</label>
+                                <input type="text" class="form-control" name="institution_name" id="institution_name">
+                            </div>
+                            <div class="form-group">
+                                <label for="professional_history">Professional History</label>
+                                <textarea class="form-control" name="professional_history" id="professional_history"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="present_address">Present Address</label>
+                                <textarea class="form-control" name="present_address" id="present_address"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="permanent_address">Permanent Address</label>
+                                <textarea class="form-control" name="permanent_address" id="permanent_address"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="area_of_expertise">Area of Expertise</label>
+                                <input type="text" class="form-control" name="area_of_expertise" id="area_of_expertise">
+                            </div>
+                            <div class="form-group">
+                                <label for="remarks">Remarks</label>
+                                <textarea class="form-control" name="remarks" id="remarks"></textarea>
+                            </div>
                             <div class="form-group">
                                 <label for="approval">Approval Status</label>
                                 <select class="form-control" name="approval" id="approval">
@@ -183,6 +243,7 @@
                 </div>
             </div>
         </div>
+
 
 
         <!-- jQuery and DataTables JS -->
@@ -236,14 +297,14 @@
             function editAlumni(id) {
                 // Use AJAX to get the existing data of the alumni from the server
                 $.ajax({
-                    url: 'get_alumni.php', // PHP script to fetch existing data
+                    url: '<?= site_url('alumni/getAlumni'); ?>', // PHP script to fetch existing data
                     type: 'POST',
                     data: {
                         alumni_id: id
                     },
                     success: function(response) {
-                        // Parse the JSON response
-                        let alumniData = JSON.parse(response);
+                        // Use response directly since it's already parsed as JSON
+                        let alumniData = response;
 
                         // Populate the modal with existing data
                         $('#editAlumniModal').find('input[name="graduation_institute"]').val(alumniData.graduation_institute || '');
@@ -282,7 +343,7 @@
             function deleteAlumni(id) {
                 if (confirm('Are you sure you want to delete this record?')) {
                     $.ajax({
-                        url: '<?= site_url('alumni/deleteAlumni')?>', // Your PHP file to handle deletion
+                        url: '<?= site_url('alumni/deleteAlumni') ?>', // Your PHP file to handle deletion
                         type: 'POST',
                         data: {
                             alumni_id: id
@@ -298,7 +359,7 @@
             }
 
             function exportAlumni() {
-                window.location.href = '<?= site_url('alumni/exportAlumni')?>'; // Trigger file download
+                window.location.href = '<?= site_url('alumni/exportAlumni') ?>'; // Trigger file download
             }
 
             function printAlumni() {

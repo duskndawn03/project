@@ -216,5 +216,29 @@ class AlumniController extends BaseController
         return redirect()->back()->with('error', 'Please upload a valid CSV file.');
     }
 
+    public function getAlumni() {
+        // Get alumni_id from POST request
+        $alumniId = $this->request->getPost('alumni_id');
+
+        if ($alumniId) {
+            // Load the AlumniModel
+            $alumniModel = new AlumniModel();
+
+            // Fetch alumni data by ID
+            $alumniData = $alumniModel->getAlumniById($alumniId);
+
+            if ($alumniData) {
+                // Return the alumni data as JSON response
+                return $this->response->setJSON($alumniData);
+            } else {
+                // Return an error if the alumni is not found
+                return $this->response->setJSON(['status' => 'error', 'message' => 'Alumni not found']);
+            }
+        } else {
+            // Return an error if no alumni ID is provided
+            return $this->response->setJSON(['status' => 'error', 'message' => 'No alumni ID provided']);
+        }
+    }
+
 
 }

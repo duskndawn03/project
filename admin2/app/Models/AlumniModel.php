@@ -71,6 +71,11 @@ class AlumniModel extends Model
         return $this->findAll(); // Get all alumni data from the table
     }
 
+    // Method to fetch alumni details by ID
+    public function getAlumniById($alumniId) {
+        return $this->where('sl_no', $alumniId)->first();
+    }
+
     // Method to insert multiple alumni records from CSV data
     public function insertAlumniFromCSV($alumniData) {
         if (!empty($alumniData)) {

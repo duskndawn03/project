@@ -13,6 +13,7 @@ $routes->post('/alumni/updateApproval', 'AlumniController::updateApproval');
 $routes->post('/alumni/deleteAlumni', 'AlumniController::deleteAlumni');
 $routes->get('/alumni/exportAlumni', 'AlumniController::exportAlumni');
 $routes->post('/alumni/importAlumni', 'AlumniController::importAlumni');
+$routes->post('/alumni/getAlumni', 'AlumniController::getAlumni');
 $routes->get('/home', 'Home::index');
 
 //routes for pages
