@@ -1,3 +1,3 @@
 .vscode/
-admin/config/db_connection.php
-config/db_connection.php
+admin/app/Config/Database.php
+ci4/app/Config/Database.php
