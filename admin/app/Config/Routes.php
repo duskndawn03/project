@@ -11,6 +11,7 @@ $routes->post('/loginauth', 'LoginController::loginauth');
 $routes->post('/alumni/updateVisibility', 'AlumniController::updateVisibility');
 $routes->post('/alumni/updateApproval', 'AlumniController::updateApproval');
 $routes->post('/alumni/deleteAlumni', 'AlumniController::deleteAlumni');
+$routes->post('/alumni/updateAlumni', 'AlumniController::updateAlumni');
 $routes->get('/alumni/exportAlumni', 'AlumniController::exportAlumni');
 $routes->post('/alumni/importAlumni', 'AlumniController::importAlumni');
 $routes->post('/alumni/getAlumni', 'AlumniController::getAlumni');

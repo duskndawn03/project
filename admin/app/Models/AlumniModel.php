@@ -76,6 +76,11 @@ class AlumniModel extends Model
         return $this->where('sl_no', $alumniId)->first();
     }
 
+    public function updateAlumniById($alumni_id, $data)
+    {
+        return $this->update($alumni_id, $data);
+    }
+
     // Method to insert multiple alumni records from CSV data
     public function insertAlumniFromCSV($alumniData) {
         if (!empty($alumniData)) {

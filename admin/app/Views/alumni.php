@@ -141,7 +141,7 @@
         <div class="modal fade" id="editAlumniModal" tabindex="-1" role="dialog" aria-labelledby="editAlumniLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <form id="editAlumniForm" method="POST" action="<?= site_url('alumni/update') ?>">
+                    <form id="editAlumniForm" method="POST" action="<?= site_url('alumni/updateAlumni') ?>">
                         <div class="modal-header">
                             <h5 class="modal-title" id="editAlumniLabel">Edit Alumni</h5>
                             <button type="button" class="close btn btn-light rounded-circle" data-bs-dismiss="modal" aria-label="Close" style="font-size: 1.5rem; border: none;">
@@ -149,7 +149,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <input type="hidden" name="sl_no" id="alumniId">
+                            <input type="hidden" name="alumni_id" id="alumni_id">
 
                             <div class="form-group">
                                 <label for="graduation_institute">Graduation Institute</label>

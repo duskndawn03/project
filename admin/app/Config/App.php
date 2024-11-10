@@ -16,7 +16,7 @@ class App extends BaseConfig
      *
      * E.g., http://example.com/
      */
-    public string $baseURL = 'https://ipework.rf.gd/admin2/';
+    public string $baseURL = 'https://ipework.rf.gd/admin/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

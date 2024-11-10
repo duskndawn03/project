@@ -1,77 +1,56 @@
 <?php
-session_start();
 
-if (!isset($_SESSION['email'])) {
-    header("Location: login.php");
-    exit();
+/*
+ *---------------------------------------------------------------
+ * CHECK PHP VERSION
+ *---------------------------------------------------------------
+ */
+
+$minPhpVersion = '8.1'; // If you update this, don't forget to update `spark`.
+if (version_compare(PHP_VERSION, $minPhpVersion, '<')) {
+    $message = sprintf(
+        'Your PHP version must be %s or higher to run CodeIgniter. Current version: %s',
+        $minPhpVersion,
+        PHP_VERSION
+    );
+
+    header('HTTP/1.1 503 Service Unavailable.', true, 503);
+    echo $message;
+
+    exit(1);
 }
-?>
 
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Latest Bootstrap CSS (v5.3.2) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+/*
+ *---------------------------------------------------------------
+ * SET THE CURRENT DIRECTORY
+ *---------------------------------------------------------------
+ */
 
-    <title>Admin Panel Dashboard</title>
-    <style>
-        .main {
-            padding: 20px;
-        }
-    </style>
-</head>
-<body>
-    
-<?php include 'header.php'?>
+// Path to the front controller (this file)
+define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
 
-<!-- Main Content -->
-<div class="main">
-    <div class="container">
-        <h1>Dashboard</h1>
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="card mb-4">
-                    <div class="card-header bg-primary text-white">
-                        <h3>Card 1</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>Some content for Card 1.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="card mb-4">
-                    <div class="card-header bg-primary text-white">
-                        <h3>Card 2</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>Some content for Card 2.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="card mb-4">
-                    <div class="card-header bg-primary text-white">
-                        <h3>Card 3</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>Some content for Card 3.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+// Ensure the current directory is pointing to the front controller's directory
+if (getcwd() . DIRECTORY_SEPARATOR !== FCPATH) {
+    chdir(FCPATH);
+}
 
-<!-- Latest jQuery (v3.6.4) -->
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<!-- Latest Popper.js (v2.11.8) -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-<!-- Latest Bootstrap JS (v5.3.2) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+/*
+ *---------------------------------------------------------------
+ * BOOTSTRAP THE APPLICATION
+ *---------------------------------------------------------------
+ * This process sets up the path constants, loads and registers
+ * our autoloader, along with Composer's, loads our constants
+ * and fires up an environment-specific bootstrapping.
+ */
 
+// LOAD OUR PATHS CONFIG FILE
+// This is the line that might need to be changed, depending on your folder structure.
+require FCPATH . 'app/Config/Paths.php';
+// ^^^ Change this line if you move your application folder
 
-</body>
-</html>
+$paths = new Config\Paths();
+
+// LOAD THE FRAMEWORK BOOTSTRAP FILE
+require $paths->systemDirectory . '/Boot.php';
+
+exit(CodeIgniter\Boot::bootWeb($paths));
