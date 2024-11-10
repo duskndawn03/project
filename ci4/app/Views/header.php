@@ -32,7 +32,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url(); ?>/pages/alumni/">Alumnies</a>
+                    <a class="nav-link" href="<?php echo base_url(); ?>ipe/alumni/">Alumnies</a>
                 </li>
 
                 <li class="nav-item dropdown">
