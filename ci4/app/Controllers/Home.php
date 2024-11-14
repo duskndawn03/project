@@ -2,10 +2,16 @@
 
 namespace App\Controllers;
 
+use App\Models\ProductsModel;
+
 class Home extends BaseController
 {
     public function index()
     {
-        return view('home');
+        $model = new ProductsModel();
+
+        $data['products'] = $model->getProducts();
+
+        return view('home', $data);
     }
 }

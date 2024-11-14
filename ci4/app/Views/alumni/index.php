@@ -48,7 +48,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2 class="text-center mb-4">Alumni Information</h2>
           <!-- Register Button -->
-          <a href="alumnireg.php" class="btn btn-primary">Register</a>
+          <a href="<?=base_url();?>ipe/alumni/reg" class="btn btn-primary">Register</a>
         </div>
         <div class="table-responsive border">
     <table id="alumniTable" class="table table-bordered nowrap border" style="width:100%">

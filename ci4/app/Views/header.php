@@ -13,33 +13,37 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Study</a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Study Materials</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="<?php echo base_url(); ?>study/books/">Books</a></li>
-                        <li><a class="dropdown-item" href="#">Courses</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url(); ?>study/courses/">Courses</a></li>
                         <li><a class="dropdown-item" href="<?php echo base_url(); ?>study/calculators/">Calculators</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Planning</a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Supply Chain</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="<?php echo base_url(); ?>/pages/business/">Business Directory</a></li>
-                        <li><a class="dropdown-item" href="<?php echo base_url(); ?>/pages/products/">Products</a></li>
-                        <li><a class="dropdown-item" href="#">Planning Materials</a></li>
-                        <li><a class="dropdown-item" href="#">Services</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url(); ?>supply/business/">Business Directory</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url(); ?>supply/planning/">Planning Materials</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url(); ?>supply/services/">Services</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url(); ?>supply/products/">Products</a></li>
                     </ul>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url(); ?>ipe/alumni/">Alumnies</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">IPE Network</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="nav-link" href="<?php echo base_url(); ?>ipe/alumni/">Alumni</a></li>
+                        <li><a class="nav-link" href="<?php echo base_url(); ?>ipe/forum/">Forum</a></li>
+                    </ul>
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">News</a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">News & Circulars</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">News</a></li>
-                        <li><a class="dropdown-item" href="<?php echo base_url(); ?>/pages/jobs/">Jobs</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url(); ?>news/">News</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url(); ?>circulars/jobs/">Jobs</a></li>
                     </ul>
                 </li>
 

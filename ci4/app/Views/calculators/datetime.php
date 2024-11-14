@@ -1,5 +1,3 @@
-<?php include '../../config/baseurl.php'; ?>
-
 <!DOCTYPE html>
 <html lang="en">
 

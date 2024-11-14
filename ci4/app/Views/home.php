@@ -68,6 +68,10 @@
         height: 17em;
       }
     }
+
+    .carousel-inner .carousel-item {
+      display: flex;
+    }
   </style>
 </head>
 
@@ -79,7 +83,7 @@
   <div class="container-fluid"> <!-- Change container to container-fluid for full-width -->
     <div class="row g-0"> <!-- Add no-gutters to remove extra padding between columns -->
       <!-- First grid item (3 grid spaces) -->
-      <div class="col-lg-3 col-md-3 col-sm-12">
+      <div class="col-lg-2 col-md-2 col-sm-12">
         <div class="card mb-4">
           <div class="img-wrapper">
             <img src="<?php echo base_url(); ?>public/assets/img/instagram/insta-1.jpg" class="card-img-top" alt="...">
@@ -93,7 +97,7 @@
       </div>
 
       <!-- Main Slide (6 grid spaces) -->
-      <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="col-lg-8 col-md-8 col-sm-12">
         <div class="card mb-4">
           <div class="img-wrapper">
             <img src="<?php echo base_url(); ?>public/assets/img/instagram/insta-1.jpg" class="card-img-top" alt="...">
@@ -107,7 +111,7 @@
       </div>
 
       <!-- Second grid item (3 grid spaces) -->
-      <div class="col-lg-3 col-md-3 col-sm-12">
+      <div class="col-lg-2 col-md-2 col-sm-12">
         <div class="card mb-4">
           <div class="img-wrapper">
             <img src="<?php echo base_url(); ?>public/assets/img/instagram/insta-2.jpg" class="card-img-top" alt="...">
@@ -132,35 +136,101 @@
 
     <div class="row g-0 mt-4"> <!-- Remove padding between columns -->
       <!-- First grid item (4 grid spaces) -->
-      <div class="col-lg-4 col-md-4 col-sm-12">
-        <div class="card mb-4">
-          <div class="img-wrapper">
-            <img src="<?php echo base_url(); ?>public/assets/img/instagram/photo1.jpg" class="card-img-top" alt="...">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Advertisement Portion</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
+      <div class="col-lg-10 col-md-10 col-sm-12">
+        <div class="container">
+          <div class="row">
+            <div class="col-6">
+              <h5 class="mb-3">Top Ranking <a href="#" class="float-end">View All</a></h5>
+              <?php if (!empty($products)): ?>
+                <div id="multiItemCarousel" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <?php
+                    // Split products array into chunks of 4
+                    $chunkedProducts = array_chunk($products, 4);
+                    foreach ($chunkedProducts as $index => $productSet) {
+                      $isActive = $index === 0 ? 'active' : ''; // Set active class only for the first item
+                      echo "<div class='carousel-item $isActive'>";
+                      echo "<div class='d-flex justify-content-between'>";
 
-      <!-- Second grid item (4 grid spaces) -->
-      <div class="col-lg-4 col-md-4 col-sm-12">
-        <div class="card mb-4">
-          <div class="img-wrapper">
-            <img src="<?php echo base_url(); ?>public/assets/img/instagram/insta-1.jpg" class="card-img-top" alt="...">
+                      // Loop through each product in the set and create a card
+                      foreach ($productSet as $product) {
+                        // Ensure the image URL exists, otherwise, provide a placeholder image
+                        $imageURL = !empty($product['product_image']) ? $product['product_image'] : 'placeholder.jpg';
+                        $productName = htmlspecialchars($product['product_name'], ENT_QUOTES);
+                        $productCategory = htmlspecialchars($product['product_category'], ENT_QUOTES);
+                        $productPrice = number_format($product['current_price'], 2);
+
+                        echo "<div class='card me-3' style='width: 10rem;'>
+                    <img src='{$imageURL}' class='card-img-top' alt='{$productName}'>
+                    <div class='card-body'>
+                      <span class='badge bg-warning text-dark'>NO.1 in {$productCategory}</span>
+                      <p class='card-text mt-2'>US \${$productPrice}</p>
+                    </div>
+                  </div>";
+                      }
+
+                      // Add empty cards if there are less than 4 items in the set
+                      $remaining = 4 - count($productSet);
+                      for ($i = 0; $i < $remaining; $i++) {
+                        echo "<div class='card me-3' style='width: 10rem; visibility: hidden;'></div>";
+                      }
+
+                      echo "</div></div>";
+                    }
+                    ?>
+                  </div>
+
+                  <!-- Only show carousel controls if there are multiple slides -->
+                  <?php if (count($chunkedProducts) > 1): ?>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#multiItemCarousel" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#multiItemCarousel" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  <?php endif; ?>
+                </div>
+              <?php else: ?>
+                <p>No products available.</p>
+              <?php endif; ?>
+            </div>
+
+            <div class="col-6">
+              this div takes 6 space
+            </div>
           </div>
-          <div class="card-body">
-            <h5 class="card-title">Main Slide</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+          <div class="row">
+            <div class="col-6">
+              this div takes 6 space
+            </div>
+            <div class="col-6">
+              this div takes 6 space
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              this div takes 6 space
+            </div>
+            <div class="col-6">
+              this div takes 6 space
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              this div takes 6 space
+            </div>
+            <div class="col-6">
+              this div takes 6 space
+            </div>
           </div>
         </div>
+
       </div>
 
       <!-- Third grid item (4 grid spaces) -->
-      <div class="col-lg-4 col-md-4 col-sm-12">
+      <div class="col-lg-2 col-md-2 col-sm-12">
         <div class="card mb-4">
           <div class="img-wrapper">
             <img src="<?php echo base_url(); ?>public/assets/img/instagram/insta-2.jpg" class="card-img-top" alt="...">
@@ -178,4 +248,5 @@
   <?php include 'footer.php'; ?>
 
 </body>
+
 </html>

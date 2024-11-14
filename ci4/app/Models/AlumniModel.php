@@ -32,6 +32,29 @@ class AlumniModel extends Model
         'approval'
     ];
 
+    protected $validationRules = [
+        'graduation_institute' => 'required',
+        'admission_year' => 'required|integer',
+        'batch_name_no' => 'required',
+        'roll_no' => 'required',
+        'name' => 'required',
+        'contact_no' => 'required',
+        'email_address' => 'required|valid_email',
+        // Add other validation rules as needed
+    ];
+
+    // Method to save alumni data
+    public function saveAlumniData(array $data)
+    {
+        // Validate data based on the defined rules
+        if (!$this->validate($data)) {
+            return false; // Validation failed
+        }
+
+        // Save the data to the database
+        return $this->save($data);
+    }
+
     public function getVisibleColumns()
     {
         $db = db_connect();

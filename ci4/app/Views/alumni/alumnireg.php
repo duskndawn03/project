@@ -1,13 +1,3 @@
-<?php
-
-session_start(); // Start the session
-
-// Check if there's a success message and store it in a variable
-$success_message = isset($_SESSION['success_message']) ? $_SESSION['success_message'] : '';
-// Clear the message after displaying it
-unset($_SESSION['success_message']);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,21 +20,21 @@ unset($_SESSION['success_message']);
 </head>
 <body>
 
-    <?php include '../../includes/header.php'?>
+    <?= view('header');?>
 
     <!-- Registration Form Section Begin -->
     <div class="container mt-3">
         <h2 class="text-center mb-3">Register as Alumni</h2>
 
         <!-- Display success message if available -->
-        <?php if ($success_message): ?>
+        <?php if (isset($success_message) && $success_message): ?>
             <div class="alert alert-success" role="alert">
-                <?php echo htmlspecialchars($success_message); ?>
+                <?= htmlspecialchars($success_message); ?>
             </div>
         <?php endif; ?>
 
         <!-- Registration form goes here -->
-        <form action="/functions/register_alumni.php" method="post">
+        <form action="<?= base_url();?>ipe/alumni/getRegistered" method="post">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="graduationInstitute">Graduation Institute</label>
@@ -134,7 +124,7 @@ unset($_SESSION['success_message']);
     </div>
     <!-- Registration Form Section End -->
 
-    <?php include '../../includes/footer.php'?>
+    <?= view('footer');?>
 
 </body>
 </html>
