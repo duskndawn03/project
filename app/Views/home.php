@@ -17,6 +17,16 @@
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
+  <!-- Slick Carousel CSS -->
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
+  <!-- Start WOWSlider.com HEAD section -->
+  <link rel="stylesheet" type="text/css" href="https://wowslider.com/sliders/demo-23/engine1/style.css" />
+  <!-- <script type="text/javascript" src="engine1/jquery.js"></script> -->
+  <!-- End WOWSlider.com HEAD section -->
+
+
   <style type="text/css">
     .notice-bar {
       width: 100%;
@@ -68,46 +78,56 @@
         height: 17em;
       }
     }
-
-    .carousel-inner .carousel-item {
-      display: flex;
-    }
   </style>
 </head>
 
 <body>
-  <!-- Header Section Begins -->
-  <?php include 'header.php'; ?>
-  <!-- Header Section End -->
 
-  <div class="container-fluid"> <!-- Change container to container-fluid for full-width -->
-    <div class="row g-0"> <!-- Add no-gutters to remove extra padding between columns -->
+  <?= view('header'); ?>
+
+  <div class="container-fluid">
+    <div class="row g-0">
       <!-- First grid item (3 grid spaces) -->
       <div class="col-lg-2 col-md-2 col-sm-12">
         <div class="card mb-4">
           <div class="img-wrapper">
-            <img src="<?php echo base_url(); ?>public/assets/img/instagram/insta-1.jpg" class="card-img-top" alt="...">
+            <a href="#"><img src="<?php echo base_url(); ?>public/assets/img/instagram/insta-1.jpg" class="card-img-top" alt="..."></a>
           </div>
-          <div class="card-body">
+          <!-- <div class="card-body">
             <h5 class="card-title">Advertisement Portion</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
+          </div> -->
         </div>
       </div>
 
       <!-- Main Slide (6 grid spaces) -->
       <div class="col-lg-8 col-md-8 col-sm-12">
-        <div class="card mb-4">
-          <div class="img-wrapper">
-            <img src="<?php echo base_url(); ?>public/assets/img/instagram/insta-1.jpg" class="card-img-top" alt="...">
+        <!-- Start WOWSlider.com BODY section -->
+        <div id="wowslider-container1">
+          <div class="ws_images">
+            <ul>
+              <li><img src="https://wowslider.com/sliders/demo-23/data1/images/hohenschwangau532864.jpg" alt="Lake in Alps" title="Lake in Alps" id="wows1_0" />Hohenschwangau</li>
+              <li><img src="https://wowslider.com/sliders/demo-23/data1/images/landscape1344620.jpg" alt="Iffeldorf Lake" title="Iffeldorf Lake" id="wows1_1" />Easter Lake</li>
+              <li><img src="https://wowslider.com/sliders/demo-23/data1/images/lucerne1359909.jpg" alt="Lake in Switzerland" title="Lake in Switzerland" id="wows1_2" />Lucerne</li>
+              <li><img src="https://wowslider.com/sliders/demo-23/data1/images/rieti106848.jpg" alt="Italian Lake" title="Italian Lake" id="wows1_3" />Rieti</li>
+              <li><img src="https://wowslider.com/sliders/demo-23/data1/images/squantzpond209864.jpg" alt="Autumn Lake" title="Autumn Lake" id="wows1_4" />Squantz Pond</li>
+            </ul>
           </div>
-          <div class="card-body">
-            <h5 class="card-title">Main Slide</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.lorem ipsum is a dummy text lorem ipsum is a dummy text lorem ipsum is a dummy text lorem ipsum is a dummy text</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+          <div class="ws_bullets">
+            <div>
+              <a href="#" title="Lake in Alps"><span><img src="https://wowslider.com/sliders/demo-23/data1/tooltips/hohenschwangau532864.jpg" alt="Lake in Alps" />1</span></a>
+              <a href="#" title="Iffeldorf Lake"><span><img src="https://wowslider.com/sliders/demo-23/data1/tooltips/landscape1344620.jpg" alt="Iffeldorf Lake" />2</span></a>
+              <a href="#" title="Lake in Switzerland"><span><img src="https://wowslider.com/sliders/demo-23/data1/tooltips/lucerne1359909.jpg" alt="Lake in Switzerland" />3</span></a>
+              <a href="#" title="Italian Lake"><span><img src="https://wowslider.com/sliders/demo-23/data1/tooltips/rieti106848.jpg" alt="Italian Lake" />4</span></a>
+              <a href="#" title="Autumn Lake"><span><img src="https://wowslider.com/sliders/demo-23/data1/tooltips/squantzpond209864.jpg" alt="Autumn Lake" />5</span></a>
+            </div>
           </div>
+          <div class="ws_shadow"></div>
         </div>
+        <script type="text/javascript" src="https://wowslider.com/sliders/demo-23/engine1/wowslider.js"></script>
+        <script type="text/javascript" src="https://wowslider.com/sliders/demo-23/engine1/script.js"></script>
+        <!-- End WOWSlider.com BODY section -->
       </div>
 
       <!-- Second grid item (3 grid spaces) -->
@@ -128,101 +148,206 @@
     <!-- Notice Bar -->
     <div class="row">
       <div class="col-12">
-        <div class="notice-bar text-center py-2" style="background-color: #ffcc00; color: #000;">
+        <!-- <div class="notice-bar text-center py-2" style="background-color: #ffcc00; color: #000;">
           <strong>Notice:</strong> This is a sample notice text!
+        </div> -->
+        <div class="alert alert-info text-center m-0 py-2" role="alert">
+          <strong>Important Notice:</strong> Free shipping on orders over $50! 🚚
         </div>
       </div>
     </div>
 
-    <div class="row g-0 mt-4"> <!-- Remove padding between columns -->
-      <!-- First grid item (4 grid spaces) -->
+    <div class="row g-0 mt-4">
       <div class="col-lg-10 col-md-10 col-sm-12">
         <div class="container">
           <div class="row">
             <div class="col-6">
-              <h5 class="mb-3">Top Ranking <a href="#" class="float-end">View All</a></h5>
-              <?php if (!empty($products)): ?>
-                <div id="multiItemCarousel" class="carousel slide" data-bs-ride="carousel">
-                  <div class="carousel-inner">
-                    <?php
-                    // Split products array into chunks of 4
-                    $chunkedProducts = array_chunk($products, 4);
-                    foreach ($chunkedProducts as $index => $productSet) {
-                      $isActive = $index === 0 ? 'active' : ''; // Set active class only for the first item
-                      echo "<div class='carousel-item $isActive'>";
-                      echo "<div class='d-flex justify-content-between'>";
-
-                      // Loop through each product in the set and create a card
-                      foreach ($productSet as $product) {
-                        // Ensure the image URL exists, otherwise, provide a placeholder image
-                        $imageURL = !empty($product['product_image']) ? $product['product_image'] : 'placeholder.jpg';
-                        $productName = htmlspecialchars($product['product_name'], ENT_QUOTES);
-                        $productCategory = htmlspecialchars($product['product_category'], ENT_QUOTES);
-                        $productPrice = number_format($product['current_price'], 2);
-
-                        echo "<div class='card me-3' style='width: 10rem;'>
-                    <img src='{$imageURL}' class='card-img-top' alt='{$productName}'>
-                    <div class='card-body'>
-                      <span class='badge bg-warning text-dark'>NO.1 in {$productCategory}</span>
-                      <p class='card-text mt-2'>US \${$productPrice}</p>
+              <h5 class="mb-3">Top Ranking <a href="#" style="text-decoration: none;" class="float-end">View All</a></h5>
+              <div class="responsive">
+                <?php if (isset($products) && !empty($products)): ?>
+                  <?php foreach ($products as $product): ?>
+                    <div class="card" style="width: 18rem;">
+                      <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
+                      <div class="card-body">
+                        <h6 class="card-title"><?= $product['product_category']; ?></h6>
+                        <p class="card-text">$ <?= $product['current_price']; ?></p>
+                      </div>
                     </div>
-                  </div>";
-                      }
-
-                      // Add empty cards if there are less than 4 items in the set
-                      $remaining = 4 - count($productSet);
-                      for ($i = 0; $i < $remaining; $i++) {
-                        echo "<div class='card me-3' style='width: 10rem; visibility: hidden;'></div>";
-                      }
-
-                      echo "</div></div>";
-                    }
-                    ?>
-                  </div>
-
-                  <!-- Only show carousel controls if there are multiple slides -->
-                  <?php if (count($chunkedProducts) > 1): ?>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#multiItemCarousel" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#multiItemCarousel" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
-                  <?php endif; ?>
-                </div>
-              <?php else: ?>
-                <p>No products available.</p>
-              <?php endif; ?>
+                  <?php endforeach; ?>
+                <?php else: ?>
+                  <p>No products available.</p>
+                <?php endif; ?>
+              </div>
             </div>
-
             <div class="col-6">
-              this div takes 6 space
+              <h5 class="mb-3">Featured seller</h5>
+              <div class="responsive">
+                <?php if (isset($products) && !empty($products)): ?>
+                  <?php foreach ($products as $product): ?>
+                    <div class="card">
+                      <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
+                      <div class="card-body">
+                        <h6 class="card-title"><?= $product['product_category']; ?></h6>
+                        <p class="card-text">$ <?= $product['current_price']; ?></p>
+                      </div>
+                    </div>
+                  <?php endforeach; ?>
+                <?php else: ?>
+                  <p>No products available.</p>
+                <?php endif; ?>
+              </div>
             </div>
           </div>
           <div class="row">
             <div class="col-6">
-              this div takes 6 space
+              <h5 class="mb-3">Top Ranking <a href="#" style="text-decoration: none;" class="float-end">View All</a></h5>
+              <div class="responsive">
+                <?php if (isset($products) && !empty($products)): ?>
+                  <?php foreach ($products as $product): ?>
+                    <div class="card" style="width: 18rem;">
+                      <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
+                      <div class="card-body">
+                        <h6 class="card-title"><?= $product['product_category']; ?></h6>
+                        <p class="card-text">$ <?= $product['current_price']; ?></p>
+                      </div>
+                    </div>
+                  <?php endforeach; ?>
+                <?php else: ?>
+                  <p>No products available.</p>
+                <?php endif; ?>
+              </div>
             </div>
             <div class="col-6">
-              this div takes 6 space
+              <h5 class="mb-3">Featured seller</h5>
+              <div class="responsive">
+                <?php if (isset($products) && !empty($products)): ?>
+                  <?php foreach ($products as $product): ?>
+                    <div class="card">
+                      <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
+                      <div class="card-body">
+                        <h6 class="card-title"><?= $product['product_category']; ?></h6>
+                        <p class="card-text">$ <?= $product['current_price']; ?></p>
+                      </div>
+                    </div>
+                  <?php endforeach; ?>
+                <?php else: ?>
+                  <p>No products available.</p>
+                <?php endif; ?>
+              </div>
             </div>
           </div>
           <div class="row">
             <div class="col-6">
-              this div takes 6 space
+              <h5 class="mb-3">Top Ranking <a href="#" style="text-decoration: none;" class="float-end">View All</a></h5>
+              <div class="responsive">
+                <?php if (isset($products) && !empty($products)): ?>
+                  <?php foreach ($products as $product): ?>
+                    <div class="card" style="width: 18rem;">
+                      <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
+                      <div class="card-body">
+                        <h6 class="card-title"><?= $product['product_category']; ?></h6>
+                        <p class="card-text">$ <?= $product['current_price']; ?></p>
+                      </div>
+                    </div>
+                  <?php endforeach; ?>
+                <?php else: ?>
+                  <p>No products available.</p>
+                <?php endif; ?>
+              </div>
             </div>
             <div class="col-6">
-              this div takes 6 space
+              <h5 class="mb-3">Featured seller</h5>
+              <div class="responsive">
+                <?php if (isset($products) && !empty($products)): ?>
+                  <?php foreach ($products as $product): ?>
+                    <div class="card">
+                      <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
+                      <div class="card-body">
+                        <h6 class="card-title"><?= $product['product_category']; ?></h6>
+                        <p class="card-text">$ <?= $product['current_price']; ?></p>
+                      </div>
+                    </div>
+                  <?php endforeach; ?>
+                <?php else: ?>
+                  <p>No products available.</p>
+                <?php endif; ?>
+              </div>
             </div>
           </div>
           <div class="row">
             <div class="col-6">
-              this div takes 6 space
+              <h5 class="mb-3">Top Ranking <a href="#" style="text-decoration: none;" class="float-end">View All</a></h5>
+              <div class="responsive">
+                <?php if (isset($products) && !empty($products)): ?>
+                  <?php foreach ($products as $product): ?>
+                    <div class="card" style="width: 18rem;">
+                      <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
+                      <div class="card-body">
+                        <h6 class="card-title"><?= $product['product_category']; ?></h6>
+                        <p class="card-text">$ <?= $product['current_price']; ?></p>
+                      </div>
+                    </div>
+                  <?php endforeach; ?>
+                <?php else: ?>
+                  <p>No products available.</p>
+                <?php endif; ?>
+              </div>
             </div>
             <div class="col-6">
-              this div takes 6 space
+              <h5 class="mb-3">Featured seller</h5>
+              <div class="responsive">
+                <?php if (isset($products) && !empty($products)): ?>
+                  <?php foreach ($products as $product): ?>
+                    <div class="card">
+                      <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
+                      <div class="card-body">
+                        <h6 class="card-title"><?= $product['product_category']; ?></h6>
+                        <p class="card-text">$ <?= $product['current_price']; ?></p>
+                      </div>
+                    </div>
+                  <?php endforeach; ?>
+                <?php else: ?>
+                  <p>No products available.</p>
+                <?php endif; ?>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <h5 class="mb-3">Top Ranking <a href="#" style="text-decoration: none;" class="float-end">View All</a></h5>
+              <div class="responsive">
+                <?php if (isset($products) && !empty($products)): ?>
+                  <?php foreach ($products as $product): ?>
+                    <div class="card" style="width: 18rem;">
+                      <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
+                      <div class="card-body">
+                        <h6 class="card-title"><?= $product['product_category']; ?></h6>
+                        <p class="card-text">$ <?= $product['current_price']; ?></p>
+                      </div>
+                    </div>
+                  <?php endforeach; ?>
+                <?php else: ?>
+                  <p>No products available.</p>
+                <?php endif; ?>
+              </div>
+            </div>
+            <div class="col-6">
+              <h5 class="mb-3">Featured seller</h5>
+              <div class="responsive">
+                <?php if (isset($products) && !empty($products)): ?>
+                  <?php foreach ($products as $product): ?>
+                    <div class="card">
+                      <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
+                      <div class="card-body">
+                        <h6 class="card-title"><?= $product['product_category']; ?></h6>
+                        <p class="card-text">$ <?= $product['current_price']; ?></p>
+                      </div>
+                    </div>
+                  <?php endforeach; ?>
+                <?php else: ?>
+                  <p>No products available.</p>
+                <?php endif; ?>
+              </div>
             </div>
           </div>
         </div>
@@ -232,20 +357,74 @@
       <!-- Third grid item (4 grid spaces) -->
       <div class="col-lg-2 col-md-2 col-sm-12">
         <div class="card mb-4">
-          <div class="img-wrapper">
+          <div class="img-wrapper border-bottom">
             <img src="<?php echo base_url(); ?>public/assets/img/instagram/insta-2.jpg" class="card-img-top" alt="...">
           </div>
-          <div class="card-body">
-            <h5 class="card-title">Advertisement Portion</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+          <div class="img-wrapper border-bottom">
+            <img src="<?php echo base_url(); ?>public/assets/img/instagram/insta-2.jpg" class="card-img-top" alt="...">
+          </div>
+          <div class="img-wrapper border-bottom">
+            <img src="<?php echo base_url(); ?>public/assets/img/instagram/insta-2.jpg" class="card-img-top" alt="...">
+          </div>
+          <div class="img-wrapper border-bottom">
+            <img src="<?php echo base_url(); ?>public/assets/img/instagram/insta-2.jpg" class="card-img-top" alt="...">
+          </div>
+          <div class="img-wrapper border-bottom">
+            <img src="<?php echo base_url(); ?>public/assets/img/instagram/insta-2.jpg" class="card-img-top" alt="...">
+          </div>
+          <div class="img-wrapper border-bottom">
+            <img src="<?php echo base_url(); ?>public/assets/img/instagram/insta-2.jpg" class="card-img-top" alt="...">
+          </div>
+          <div class="img-wrapper border-bottom">
+            <img src="<?php echo base_url(); ?>public/assets/img/instagram/insta-2.jpg" class="card-img-top" alt="...">
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <?php include 'footer.php'; ?>
+  <?= view('footer'); ?>
+  <!-- Slick Carousel JS -->
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('.responsive').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        responsive: [{
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+          // You can unslick at a given breakpoint now by adding:
+          // settings: "unslick"
+          // instead of a settings object
+        ]
+      });
+    });
+  </script>
 
 </body>
 

@@ -12,6 +12,10 @@ class HomeController extends BaseController
 
         $data['products'] = $model->getProducts();
 
+        // echo "<pre>"    ;
+        // print_r($data);
+        // echo "</pre>"   ;
+
         return view('home', $data);
     }
 }
