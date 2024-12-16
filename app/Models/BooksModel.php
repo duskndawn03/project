@@ -17,11 +17,21 @@ class BooksModel extends Model
         return $this->findAll();
     }
 
+    public function getBookBySlug($slug)
+    {
+        $db = \Config\Database::connect();
+        $builder = $db->table('book_details');
+        $builder->where('book_details_slug', $slug);
+        return $builder->get()->getRowArray();
+    }
+
+
     // Method to get book details by category
     public function getBooksByCategory($category)
     {
         $db = \Config\Database::connect();
         $builder = $db->table('book_details');
+        $builder->select('*');
         $builder->where('book_details_category', $category);
         return $builder->get()->getResultArray();
     }

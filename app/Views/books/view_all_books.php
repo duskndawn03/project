@@ -26,6 +26,29 @@ if (!isset($category) || empty($category)) {
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
     <style type="text/css">
+           /* Hover effect to show dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Optional: Add a transition for smooth opening */
+.nav-item.dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    padding: 5px 0;
+    margin: 0;
+    background-color: #fff;
+    border-radius: 0.375rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: all 0.3s ease;
+}
+/* Optional: add transitions for smooth opening */
+.dropdown-menu {
+    transition: opacity 0.3s ease;
+}
         @keyframes scroll-left {
             0% {
                 transform: translateX(100%);

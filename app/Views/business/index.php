@@ -19,6 +19,29 @@
 
 
   <style>
+       /* Hover effect to show dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Optional: Add a transition for smooth opening */
+.nav-item.dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    padding: 5px 0;
+    margin: 0;
+    background-color: #fff;
+    border-radius: 0.375rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: all 0.3s ease;
+}
+/* Optional: add transitions for smooth opening */
+.dropdown-menu {
+    transition: opacity 0.3s ease;
+}
     .card {
       margin: 0 0.5em;
       /* box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18); */
@@ -51,14 +74,15 @@
   <!-- Header Section End -->
 
   <div class="container-fluid">
-    <div class="row g-0 justify-content-center">
-      <ul class="list-inline">
-        <?php
-        for ($char = 65; $char <= 90; $char++) {
-          // echo chr($char) . " ";
-          echo '<li style="font-size: 29px;" class="list-inline-item"><a href="' . base_url() . '/category/search/' . strtolower(chr($char)) . '"><span class="badge badge-primary">' . chr($char) . '</span></a></li> ';
-        }
-        ?>
+    <div class="row g-0">
+      <ul class="list-inline d-flex justify-content-center">
+        <?php for ($ascii = 65; $ascii <= 90; $ascii++): ?>
+          <li class="list-inline-item fs-3">
+            <a href="<?= base_url('business/category/search/' . strtolower(chr($ascii))) ?>">
+              <span class="badge bg-primary"><?= chr($ascii) ?></span>
+            </a>
+          </li>
+        <?php endfor; ?>
       </ul>
     </div>
     <div class="row g-0"> <!-- Add no-gutters to remove extra padding between columns -->
@@ -106,20 +130,16 @@
     </div>
     <div class="row g-0 justify-content-center">
       <div class="col-md-8">
-        <form class="form-inline justify-content-center">
+        <form class="d-flex justify-content-center">
           <!-- First Input Field: Find Business -->
-          <div class="input-group mr-2">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fa fa-search"></i></span>
-            </div>
+          <div class="input-group me-2">
+            <span class="input-group-text"><i class="fa fa-search"></i></span>
             <input type="text" class="form-control" placeholder="Find business" aria-label="Find business">
           </div>
 
           <!-- Second Input Field: Location -->
-          <div class="input-group mr-2">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
-            </div>
+          <div class="input-group me-2">
+            <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
             <input type="text" class="form-control" id="location-input" placeholder="Location" aria-label="Location">
           </div>
 
@@ -128,6 +148,7 @@
         </form>
       </div>
     </div>
+
     <div class="row g-0 mt-4"> <!-- Add no-gutters to remove extra padding between columns -->
       <!-- First grid item (3 grid spaces) -->
       <div class="col-lg-3 col-md-3 col-sm-12">
@@ -173,8 +194,7 @@
     </div>
   </div>
 
-  <?=view('footer');?>
+  <?= view('footer'); ?>
 
 </body>
-
 </html>

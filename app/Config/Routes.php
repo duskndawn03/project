@@ -10,6 +10,11 @@ $routes->get('/', 'HomeController::index');
 $routes->get('/study/books', 'BooksController::index');
 $routes->get('/study/books/search_books', 'BooksController::searchBooks');
 $routes->get('/study/books/view_all_books', 'BooksController::viewAllBooks');
+$routes->get('/study/books/details/(:segment)', 'BooksController::details/$1');
+$routes->get('files/(:segment)', 'FileController::serve/$1');
+$routes->get('view-pdf/(:segment)', 'FileController::viewer/$1');
+
+
 
 $routes->get('/study/calculators', 'CalculatorsController::index');
 $routes->get('/study/calculators/length', 'CalculatorsController::length');

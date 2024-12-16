@@ -22,7 +22,31 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css">
   <!-- DataTables Responsive Extension CSS -->
   <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css">
+<style>
+     /* Hover effect to show dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
 
+/* Optional: Add a transition for smooth opening */
+.nav-item.dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    padding: 5px 0;
+    margin: 0;
+    background-color: #fff;
+    border-radius: 0.375rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: all 0.3s ease;
+}
+/* Optional: add transitions for smooth opening */
+.dropdown-menu {
+    transition: opacity 0.3s ease;
+}
+</style>
 </head>
 
 <body>

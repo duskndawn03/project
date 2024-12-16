@@ -28,6 +28,31 @@
 
 
   <style type="text/css">
+
+    /* Hover effect to show dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Optional: Add a transition for smooth opening */
+.nav-item.dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    padding: 5px 0;
+    margin: 0;
+    background-color: #fff;
+    border-radius: 0.375rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: all 0.3s ease;
+}
+/* Optional: add transitions for smooth opening */
+.dropdown-menu {
+    transition: opacity 0.3s ease;
+}
+
     .notice-bar {
       width: 100%;
       background-color: #ffcc00;
@@ -86,24 +111,25 @@
   <?= view('header'); ?>
 
   <div class="container-fluid">
-    <div class="row g-0">
-      <!-- First grid item (3 grid spaces) -->
-      <div class="col-lg-2 col-md-2 col-sm-12">
-        <div class="card mb-4">
+
+    <div class="row g-2">
+      <!-- Advertisement Card 1 -->
+      <div class="col-lg-2 col-md-2 col-sm-6 mb-4 order-2 order-lg-1">
+        <div class="card h-100">
           <div class="img-wrapper">
-            <a href="#"><img src="<?php echo base_url(); ?>public/assets/img/instagram/insta-1.jpg" class="card-img-top" alt="..."></a>
+            <img src="<?php echo base_url(); ?>public/assets/img/instagram/insta-2.jpg" class="card-img-top" alt="...">
           </div>
-          <!-- <div class="card-body">
-            <h5 class="card-title">Advertisement Portion</h5>
+          <div class="card-body">
+            <h5 class="card-title">Advertisement portion</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div> -->
+          </div>
         </div>
       </div>
 
-      <!-- Main Slide (6 grid spaces) -->
-      <div class="col-lg-8 col-md-8 col-sm-12">
-        <!-- Start WOWSlider.com BODY section -->
+      <!-- Slider Section -->
+      <div class="col-lg-8 col-md-8 col-sm-12 mb-4 order-1">
+        <!-- WOWSlider section -->
         <div id="wowslider-container1">
           <div class="ws_images">
             <ul>
@@ -127,12 +153,11 @@
         </div>
         <script type="text/javascript" src="https://wowslider.com/sliders/demo-23/engine1/wowslider.js"></script>
         <script type="text/javascript" src="https://wowslider.com/sliders/demo-23/engine1/script.js"></script>
-        <!-- End WOWSlider.com BODY section -->
       </div>
 
-      <!-- Second grid item (3 grid spaces) -->
-      <div class="col-lg-2 col-md-2 col-sm-12">
-        <div class="card mb-4">
+      <!-- Advertisement Card 2 -->
+      <div class="col-lg-2 col-md-2 col-sm-6 mb-4 order-3 order-lg-1">
+        <div class="card h-100">
           <div class="img-wrapper">
             <img src="<?php echo base_url(); ?>public/assets/img/instagram/insta-2.jpg" class="card-img-top" alt="...">
           </div>
@@ -161,7 +186,7 @@
       <div class="col-lg-10 col-md-10 col-sm-12">
         <div class="container">
           <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
               <h5 class="mb-3">Top Ranking <a href="#" style="text-decoration: none;" class="float-end">View All</a></h5>
               <div class="responsive">
                 <?php if (isset($products) && !empty($products)): ?>
@@ -179,7 +204,7 @@
                 <?php endif; ?>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
               <h5 class="mb-3">Featured seller</h5>
               <div class="responsive">
                 <?php if (isset($products) && !empty($products)): ?>
@@ -199,7 +224,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
               <h5 class="mb-3">Top Ranking <a href="#" style="text-decoration: none;" class="float-end">View All</a></h5>
               <div class="responsive">
                 <?php if (isset($products) && !empty($products)): ?>
@@ -217,7 +242,7 @@
                 <?php endif; ?>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
               <h5 class="mb-3">Featured seller</h5>
               <div class="responsive">
                 <?php if (isset($products) && !empty($products)): ?>
@@ -237,7 +262,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
               <h5 class="mb-3">Top Ranking <a href="#" style="text-decoration: none;" class="float-end">View All</a></h5>
               <div class="responsive">
                 <?php if (isset($products) && !empty($products)): ?>
@@ -255,7 +280,7 @@
                 <?php endif; ?>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
               <h5 class="mb-3">Featured seller</h5>
               <div class="responsive">
                 <?php if (isset($products) && !empty($products)): ?>
@@ -275,7 +300,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
               <h5 class="mb-3">Top Ranking <a href="#" style="text-decoration: none;" class="float-end">View All</a></h5>
               <div class="responsive">
                 <?php if (isset($products) && !empty($products)): ?>
@@ -293,7 +318,7 @@
                 <?php endif; ?>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
               <h5 class="mb-3">Featured seller</h5>
               <div class="responsive">
                 <?php if (isset($products) && !empty($products)): ?>
@@ -313,7 +338,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
               <h5 class="mb-3">Top Ranking <a href="#" style="text-decoration: none;" class="float-end">View All</a></h5>
               <div class="responsive">
                 <?php if (isset($products) && !empty($products)): ?>
@@ -331,7 +356,7 @@
                 <?php endif; ?>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
               <h5 class="mb-3">Featured seller</h5>
               <div class="responsive">
                 <?php if (isset($products) && !empty($products)): ?>
@@ -395,6 +420,7 @@
         speed: 300,
         slidesToShow: 4,
         slidesToScroll: 4,
+        arrows: false, // Disable arrows
         responsive: [{
             breakpoint: 1024,
             settings: {

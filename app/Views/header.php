@@ -13,7 +13,7 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Study Materials</a>
+                    <a class="nav-link dropdown-toggle" href="#">Study Materials</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="<?php echo base_url(); ?>study/books/">Books</a></li>
                         <li><a class="dropdown-item" href="<?php echo base_url(); ?>study/courses/">Courses</a></li>
@@ -22,7 +22,7 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Supply Chain</a>
+                    <a class="nav-link dropdown-toggle" href="#">Supply Chain</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="<?php echo base_url(); ?>supply/business/">Business Directory</a></li>
                         <li><a class="dropdown-item" href="<?php echo base_url(); ?>supply/planning/">Planning Materials</a></li>
@@ -32,7 +32,7 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">IPE Network</a>
+                    <a class="nav-link dropdown-toggle" href="#">IPE Network</a>
                     <ul class="dropdown-menu">
                         <li><a class="nav-link" href="<?php echo base_url(); ?>ipe/alumni/">Alumni</a></li>
                         <li><a class="nav-link" href="<?php echo base_url(); ?>ipe/forum/">Forum</a></li>
@@ -40,7 +40,7 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">News & Circulars</a>
+                    <a class="nav-link dropdown-toggle" href="#">News & Circulars</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="<?php echo base_url(); ?>news/">News</a></li>
                         <li><a class="dropdown-item" href="<?php echo base_url(); ?>circulars/jobs/">Jobs</a></li>
@@ -48,7 +48,7 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Contact Us</a>
+                    <a class="nav-link dropdown-toggle" href="#">Contact Us</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">About Us</a></li>
                     </ul>
@@ -64,9 +64,7 @@
             <!-- Dark Mode Toggle Button -->
             <button id="toggleTheme" class="btn btn-outline-secondary ms-2">
                 <i class="fa fa-sun-o" id="themeIcon"></i>
-                <!-- <span id="themeText"> Toggle Dark Mode</span> -->
             </button>
-
         </div>
     </div>
 </nav>
