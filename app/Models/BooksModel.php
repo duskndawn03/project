@@ -19,6 +19,7 @@ class BooksModel extends Model
 
     public function getBookBySlug($slug)
     {
+        $slug = urldecode($slug);
         $db = \Config\Database::connect();
         $builder = $db->table('book_details');
         $builder->where('book_details_slug', $slug);

@@ -19,29 +19,30 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
   <style type="text/css">
-       /* Hover effect to show dropdown on hover */
-.nav-item.dropdown:hover .dropdown-menu {
-    display: block;
-}
+    /* Hover effect to show dropdown on hover */
+    .nav-item.dropdown:hover .dropdown-menu {
+      display: block;
+    }
 
-/* Optional: Add a transition for smooth opening */
-.nav-item.dropdown .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    padding: 5px 0;
-    margin: 0;
-    background-color: #fff;
-    border-radius: 0.375rem;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-    transition: all 0.3s ease;
-}
-/* Optional: add transitions for smooth opening */
-.dropdown-menu {
-    transition: opacity 0.3s ease;
-}
+    /* Optional: Add a transition for smooth opening */
+    .nav-item.dropdown .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1000;
+      padding: 5px 0;
+      margin: 0;
+      background-color: #fff;
+      border-radius: 0.375rem;
+      box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+      transition: all 0.3s ease;
+    }
+
+    /* Optional: add transitions for smooth opening */
+    .dropdown-menu {
+      transition: opacity 0.3s ease;
+    }
 
     .card {
       margin: 0 0.5em;
@@ -66,12 +67,60 @@
         height: 17em;
       }
     }
+
+    /* Style for subcategories dropdown */
+    .subcategory-list {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            min-width: 200px;
+            padding: 10px;
+            z-index: 100;
+        }
+        
+        /* Ensure category has relative position for absolute positioning of subcategory list */
+        .category {
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Show subcategories when the category is active */
+        .category.active .subcategory-list {
+            display: block;
+        }
+
+        .subcategory-list li a {
+            padding: 8px 15px;
+            color: #555;
+            text-decoration: none; /* Remove underline */
+        }
+        
+        .subcategory-list li a:hover {
+            text-decoration: underline; /* Underline on hover */
+            background-color: transparent; /* No background color change on hover */
+        }
+
+        /* Arrow for categories */
+        .category .arrow {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .category.active .arrow {
+            transform: rotate(90deg); /* Rotate the arrow when the category is active */
+        }
   </style>
 </head>
 
 <body>
   <!-- Header Section Begins -->
-  <?= view('header');?>
+  <?= view('header'); ?>
   <!-- Header Section End -->
 
   <br>
@@ -79,17 +128,36 @@
     <div class="row g-0">
       <!-- First Grid: Top Category List -->
       <div class="col-md-2">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title bg-danger">Top Categories</h5>
-            <ul class="list-group">
-              <li class="list-group-item">Category 1</li>
-              <li class="list-group-item">Category 2</li>
-              <li class="list-group-item">Category 3</li>
-              <li class="list-group-item">Category 4</li>
-            </ul>
-          </div>
-        </div>
+      <h4 class="mb-4">Product Categories</h4>
+            <div class="list-group">
+                <div class="list-group-item category" onclick="toggleSubcategories(this)">
+                    <h5>Electronics</h5>
+                    <span class="arrow">&#8594;</span> <!-- Right arrow for Electronics -->
+                    <ul class="list-unstyled subcategory-list ms-3">
+                        <li><a href="#">Mobile Phones</a></li>
+                        <li><a href="#">Laptops</a></li>
+                        <li><a href="#">Headphones</a></li>
+                    </ul>
+                </div>
+                <div class="list-group-item category" onclick="toggleSubcategories(this)">
+                    <h5>Fashion</h5>
+                    <span class="arrow">&#8594;</span> <!-- Right arrow for Fashion -->
+                    <ul class="list-unstyled subcategory-list ms-3">
+                        <li><a href="#">Men's Clothing</a></li>
+                        <li><a href="#">Women's Clothing</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="list-group-item category" onclick="toggleSubcategories(this)">
+                    <h5>Home Appliances</h5>
+                    <span class="arrow">&#8594;</span> <!-- Right arrow for Home Appliances -->
+                    <ul class="list-unstyled subcategory-list ms-3">
+                        <li><a href="#">Refrigerators</a></li>
+                        <li><a href="#">Washing Machines</a></li>
+                        <li><a href="#">Microwaves</a></li>
+                    </ul>
+                </div>
+            </div>
 
       </div>
 
@@ -468,7 +536,26 @@
   </div>
 
 
-  <?= view('footer');?>
+  <?= view('footer'); ?>
+
+  <script>
+    // Function to toggle subcategories visibility and ensure only one category is open at a time
+    function toggleSubcategories(clickedCategory) {
+        // Close all open categories
+        var allCategories = document.querySelectorAll('.category');
+        allCategories.forEach(function(category) {
+            // Remove 'active' class from all categories
+            if (category !== clickedCategory) {
+                category.classList.remove('active');
+            }
+        });
+
+        // Toggle the 'active' class on the clicked category
+        clickedCategory.classList.toggle('active');
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 
 </body>
 
