@@ -18,6 +18,11 @@
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
+  <!-- Start WOWSlider.com HEAD section -->
+  <link rel="stylesheet" type="text/css" href="https://wowslider.com/sliders/demo-23/engine1/style.css" />
+  <!-- <script type="text/javascript" src="engine1/jquery.js"></script> -->
+  <!-- End WOWSlider.com HEAD section -->
+
   <style type="text/css">
     /* Hover effect to show dropdown on hover */
     .nav-item.dropdown:hover .dropdown-menu {
@@ -70,51 +75,55 @@
 
     /* Style for subcategories dropdown */
     .subcategory-list {
-            display: none;
-            position: absolute;
-            left: 100%;
-            top: 0;
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            min-width: 200px;
-            padding: 10px;
-            z-index: 100;
-        }
-        
-        /* Ensure category has relative position for absolute positioning of subcategory list */
-        .category {
-            position: relative;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      display: none;
+      position: absolute;
+      left: 100%;
+      top: 0;
+      background-color: #f8f9fa;
+      border: 1px solid #ddd;
+      min-width: 200px;
+      padding: 10px;
+      z-index: 100;
+    }
 
-        /* Show subcategories when the category is active */
-        .category.active .subcategory-list {
-            display: block;
-        }
+    /* Ensure category has relative position for absolute positioning of subcategory list */
+    .category {
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .subcategory-list li a {
-            padding: 8px 15px;
-            color: #555;
-            text-decoration: none; /* Remove underline */
-        }
-        
-        .subcategory-list li a:hover {
-            text-decoration: underline; /* Underline on hover */
-            background-color: transparent; /* No background color change on hover */
-        }
+    /* Show subcategories when the category is active */
+    .category.active .subcategory-list {
+      display: block;
+    }
 
-        /* Arrow for categories */
-        .category .arrow {
-            margin-left: 10px;
-            transition: transform 0.3s ease;
-        }
+    .subcategory-list li a {
+      padding: 8px 15px;
+      color: #555;
+      text-decoration: none;
+      /* Remove underline */
+    }
 
-        .category.active .arrow {
-            transform: rotate(90deg); /* Rotate the arrow when the category is active */
-        }
+    .subcategory-list li a:hover {
+      text-decoration: underline;
+      /* Underline on hover */
+      background-color: transparent;
+      /* No background color change on hover */
+    }
+
+    /* Arrow for categories */
+    .category .arrow {
+      margin-left: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .category.active .arrow {
+      transform: rotate(90deg);
+      /* Rotate the arrow when the category is active */
+    }
   </style>
 </head>
 
@@ -128,62 +137,70 @@
     <div class="row g-0">
       <!-- First Grid: Top Category List -->
       <div class="col-md-2">
-      <h4 class="mb-4">Product Categories</h4>
-            <div class="list-group">
-                <div class="list-group-item category" onclick="toggleSubcategories(this)">
-                    <h5>Electronics</h5>
-                    <span class="arrow">&#8594;</span> <!-- Right arrow for Electronics -->
-                    <ul class="list-unstyled subcategory-list ms-3">
-                        <li><a href="#">Mobile Phones</a></li>
-                        <li><a href="#">Laptops</a></li>
-                        <li><a href="#">Headphones</a></li>
-                    </ul>
-                </div>
-                <div class="list-group-item category" onclick="toggleSubcategories(this)">
-                    <h5>Fashion</h5>
-                    <span class="arrow">&#8594;</span> <!-- Right arrow for Fashion -->
-                    <ul class="list-unstyled subcategory-list ms-3">
-                        <li><a href="#">Men's Clothing</a></li>
-                        <li><a href="#">Women's Clothing</a></li>
-                        <li><a href="#">Accessories</a></li>
-                    </ul>
-                </div>
-                <div class="list-group-item category" onclick="toggleSubcategories(this)">
-                    <h5>Home Appliances</h5>
-                    <span class="arrow">&#8594;</span> <!-- Right arrow for Home Appliances -->
-                    <ul class="list-unstyled subcategory-list ms-3">
-                        <li><a href="#">Refrigerators</a></li>
-                        <li><a href="#">Washing Machines</a></li>
-                        <li><a href="#">Microwaves</a></li>
-                    </ul>
-                </div>
+        <h4 class="mb-4">Product Categories</h4>
+        <div class="list-group">
+          <?php foreach ($categories as $category): ?>
+            <div class="list-group-item category" onclick="toggleSubcategories(this)">
+              <h5><?= $category['category_name'] ?></h5> <span class="arrow">&#8594;</span>
+              <ul class="list-unstyled subcategory-list ms-3">
+                <?php foreach ($subcategories as $subcategory): ?>
+                  <?php if ($subcategory['category_id'] == $category['category_id']): ?>
+                    <li>
+                      <a href="<?= base_url('supply/products/'.$subcategory['slug']); ?>">
+                        <?= $subcategory['subcategory_name'] ?>
+                      </a>
+                    </li>
+                  <?php endif; ?>
+                <?php endforeach; ?>
+              </ul>
             </div>
-
+          <?php endforeach; ?>
+        </div>
       </div>
 
       <!-- Second Grid: Automatic Picture Slide -->
       <div class="col-md-7">
-        <div id="carouselExample" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="https://img.tradeindia.com/new_website1/getdistributor/mailer/2017/Corporate-Metal-Launch-756X438-PX.jpg" class="d-block w-100" alt="Image 1">
-            </div>
-            <div class="carousel-item">
-              <img src="https://tiimg.tistatic.com/new_website1/design2024/images/gd-desktop.jpeg" class="d-block w-100" alt="Image 2">
-            </div>
-            <div class="carousel-item">
-              <img src="https://tiimg.tistatic.com/new_website1/design2024/images/almonaro-laptop.webp" class="d-block w-100" alt="Image 3">
+        <div id="wowslider-container1">
+          <div class="ws_images">
+            <ul>
+              <!-- <li><img src="https://wowslider.com/sliders/demo-23/data1/images/hohenschwangau532864.jpg" alt="Lake in Alps" title="Lake in Alps" id="wows1_0" />Hohenschwangau</li>
+              <li><img src="https://wowslider.com/sliders/demo-23/data1/images/landscape1344620.jpg" alt="Iffeldorf Lake" title="Iffeldorf Lake" id="wows1_1" />Easter Lake</li>
+              <li><img src="https://wowslider.com/sliders/demo-23/data1/images/lucerne1359909.jpg" alt="Lake in Switzerland" title="Lake in Switzerland" id="wows1_2" />Lucerne</li>
+              <li><img src="https://wowslider.com/sliders/demo-23/data1/images/rieti106848.jpg" alt="Italian Lake" title="Italian Lake" id="wows1_3" />Rieti</li>
+              <li><img src="https://wowslider.com/sliders/demo-23/data1/images/squantzpond209864.jpg" alt="Autumn Lake" title="Autumn Lake" id="wows1_4" />Squantz Pond</li> -->
+              <?php if (!empty($sliderimages)): ?>
+                <?php foreach ($sliderimages as $image): ?>
+
+                  <li>
+                    <img src="<?= base_url($image['photo_path']); ?>"
+                      alt="Autumn Lake"
+                      title="Autumn Lake"
+                      id="wows1_4" />
+                    Squantz Pond
+                  </li>
+                <?php endforeach; ?>
+              <?php endif; ?>
+            </ul>
+          </div>
+
+          <div class="ws_bullets">
+            <div>
+              <?php if (!empty($sliderbulletimages)): ?>
+                <?php foreach ($sliderbulletimages as $image): ?>
+                  <a href="#" title="Lake in Alps"><span><img src="<?= base_url($image['photo_path']); ?>" alt="Lake in Alps" />1</span></a>
+                <?php endforeach; ?>
+              <?php endif; ?>
+              <!-- <a href="#" title="Lake in Alps"><span><img src="https://wowslider.com/sliders/demo-23/data1/tooltips/hohenschwangau532864.jpg" alt="Lake in Alps" />1</span></a>
+              <a href="#" title="Iffeldorf Lake"><span><img src="https://wowslider.com/sliders/demo-23/data1/tooltips/landscape1344620.jpg" alt="Iffeldorf Lake" />2</span></a>
+              <a href="#" title="Lake in Switzerland"><span><img src="https://wowslider.com/sliders/demo-23/data1/tooltips/lucerne1359909.jpg" alt="Lake in Switzerland" />3</span></a>
+              <a href="#" title="Italian Lake"><span><img src="https://wowslider.com/sliders/demo-23/data1/tooltips/rieti106848.jpg" alt="Italian Lake" />4</span></a>
+              <a href="#" title="Autumn Lake"><span><img src="https://wowslider.com/sliders/demo-23/data1/tooltips/squantzpond209864.jpg" alt="Autumn Lake" />5</span></a> -->
             </div>
           </div>
-          <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
+          <div class="ws_shadow"></div>
         </div>
+        <script type="text/javascript" src="https://wowslider.com/sliders/demo-23/engine1/wowslider.js"></script>
+        <script type="text/javascript" src="https://wowslider.com/sliders/demo-23/engine1/script.js"></script>
       </div>
 
       <!-- Third Grid: Divided into Two Rows, Each with Two Cards -->
@@ -282,7 +299,7 @@
         <div class="card">
           <div class="card-body">
             <div class="d-flex justify-content-between align-items-center">
-              <h3 class="card-title">Analyst's Choice</h3>
+              <h3 class="card-title">Low MOQ</h3>
               <a href="#" class="text-decoration-none">See All</a>
             </div>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -310,7 +327,7 @@
         <div class="card">
           <div class="card-body">
             <div class="d-flex justify-content-between align-items-center">
-              <h3 class="card-title">Analyst's Choice</h3>
+              <h3 class="card-title">OEM Products</h3>
               <a href="#" class="text-decoration-none">See All</a>
             </div>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -541,21 +558,21 @@
   <script>
     // Function to toggle subcategories visibility and ensure only one category is open at a time
     function toggleSubcategories(clickedCategory) {
-        // Close all open categories
-        var allCategories = document.querySelectorAll('.category');
-        allCategories.forEach(function(category) {
-            // Remove 'active' class from all categories
-            if (category !== clickedCategory) {
-                category.classList.remove('active');
-            }
-        });
+      // Close all open categories
+      var allCategories = document.querySelectorAll('.category');
+      allCategories.forEach(function(category) {
+        // Remove 'active' class from all categories
+        if (category !== clickedCategory) {
+          category.classList.remove('active');
+        }
+      });
 
-        // Toggle the 'active' class on the clicked category
-        clickedCategory.classList.toggle('active');
+      // Toggle the 'active' class on the clicked category
+      clickedCategory.classList.toggle('active');
     }
-</script>
+  </script>
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 
 </body>
 

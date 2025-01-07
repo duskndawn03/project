@@ -17,7 +17,7 @@
                 <a class="nav-link" href="<?= base_url('/alumni');?>">Alumni</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('/categories');?>">Categories</a>
+                <a class="nav-link" href="<?= base_url('/products');?>">Products</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Settings</a>

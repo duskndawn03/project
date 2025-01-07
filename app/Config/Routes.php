@@ -5,6 +5,8 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+$routes->get('/schema', 'DatabaseSchema::index');
+
 $routes->get('/', 'HomeController::index');
 
 $routes->get('/study/books', 'BooksController::index');
@@ -28,6 +30,7 @@ $routes->get('/ipe/alumni/reg', 'AlumniController::diplayRegisterAlumni');
 $routes->post('/ipe/alumni/getRegistered', 'AlumniController::RegisterAsAlumni');
 
 $routes->get('/supply/products', 'ProductsController::index');
+$routes->get('/supply/products/details/(:segment)', 'ProductsController::details/$1');
 $routes->get('/supply/business', 'BusinessController::index');
 
 

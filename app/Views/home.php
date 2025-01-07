@@ -28,30 +28,30 @@
 
 
   <style type="text/css">
-
     /* Hover effect to show dropdown on hover */
-.nav-item.dropdown:hover .dropdown-menu {
-    display: block;
-}
+    .nav-item.dropdown:hover .dropdown-menu {
+      display: block;
+    }
 
-/* Optional: Add a transition for smooth opening */
-.nav-item.dropdown .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    padding: 5px 0;
-    margin: 0;
-    background-color: #fff;
-    border-radius: 0.375rem;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-    transition: all 0.3s ease;
-}
-/* Optional: add transitions for smooth opening */
-.dropdown-menu {
-    transition: opacity 0.3s ease;
-}
+    /* Optional: Add a transition for smooth opening */
+    .nav-item.dropdown .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1000;
+      padding: 5px 0;
+      margin: 0;
+      background-color: #fff;
+      border-radius: 0.375rem;
+      box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+      transition: all 0.3s ease;
+    }
+
+    /* Optional: add transitions for smooth opening */
+    .dropdown-menu {
+      transition: opacity 0.3s ease;
+    }
 
     .notice-bar {
       width: 100%;
@@ -194,7 +194,7 @@
                     <div class="card" style="width: 18rem;">
                       <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
                       <div class="card-body">
-                        <h6 class="card-title"><?= $product['product_category']; ?></h6>
+                        <h6 class="card-title"><?= $product['subcategory_id']; ?></h6>
                         <p class="card-text">$ <?= $product['current_price']; ?></p>
                       </div>
                     </div>
@@ -212,7 +212,7 @@
                     <div class="card">
                       <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
                       <div class="card-body">
-                        <h6 class="card-title"><?= $product['product_category']; ?></h6>
+                        <h6 class="card-title"><?= $product['subcategory_id']; ?></h6>
                         <p class="card-text">$ <?= $product['current_price']; ?></p>
                       </div>
                     </div>
@@ -232,7 +232,7 @@
                     <div class="card" style="width: 18rem;">
                       <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
                       <div class="card-body">
-                        <h6 class="card-title"><?= $product['product_category']; ?></h6>
+                        <h6 class="card-title"><?= $product['subcategory_id']; ?></h6>
                         <p class="card-text">$ <?= $product['current_price']; ?></p>
                       </div>
                     </div>
@@ -250,7 +250,7 @@
                     <div class="card">
                       <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
                       <div class="card-body">
-                        <h6 class="card-title"><?= $product['product_category']; ?></h6>
+                        <h6 class="card-title"><?= $product['subcategory_id']; ?></h6>
                         <p class="card-text">$ <?= $product['current_price']; ?></p>
                       </div>
                     </div>
@@ -270,7 +270,7 @@
                     <div class="card" style="width: 18rem;">
                       <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
                       <div class="card-body">
-                        <h6 class="card-title"><?= $product['product_category']; ?></h6>
+                        <h6 class="card-title"><?= $product['subcategory_id']; ?></h6>
                         <p class="card-text">$ <?= $product['current_price']; ?></p>
                       </div>
                     </div>
@@ -288,7 +288,7 @@
                     <div class="card">
                       <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
                       <div class="card-body">
-                        <h6 class="card-title"><?= $product['product_category']; ?></h6>
+                        <h6 class="card-title"><?= $product['subcategory_id']; ?></h6>
                         <p class="card-text">$ <?= $product['current_price']; ?></p>
                       </div>
                     </div>
@@ -308,7 +308,7 @@
                     <div class="card" style="width: 18rem;">
                       <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
                       <div class="card-body">
-                        <h6 class="card-title"><?= $product['product_category']; ?></h6>
+                        <h6 class="card-title"><?= $product['subcategory_id']; ?></h6>
                         <p class="card-text">$ <?= $product['current_price']; ?></p>
                       </div>
                     </div>
@@ -326,7 +326,7 @@
                     <div class="card">
                       <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
                       <div class="card-body">
-                        <h6 class="card-title"><?= $product['product_category']; ?></h6>
+                        <h6 class="card-title"><?= $product['subcategory_id']; ?></h6>
                         <p class="card-text">$ <?= $product['current_price']; ?></p>
                       </div>
                     </div>
@@ -346,7 +346,7 @@
                     <div class="card" style="width: 18rem;">
                       <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
                       <div class="card-body">
-                        <h6 class="card-title"><?= $product['product_category']; ?></h6>
+                        <h6 class="card-title"><?= $product['subcategory_id']; ?></h6>
                         <p class="card-text">$ <?= $product['current_price']; ?></p>
                       </div>
                     </div>
@@ -364,7 +364,7 @@
                     <div class="card">
                       <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
                       <div class="card-body">
-                        <h6 class="card-title"><?= $product['product_category']; ?></h6>
+                        <h6 class="card-title"><?= $product['subcategory_id']; ?></h6>
                         <p class="card-text">$ <?= $product['current_price']; ?></p>
                       </div>
                     </div>
