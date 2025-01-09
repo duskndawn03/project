@@ -14,6 +14,16 @@ class ProductsModel extends Model
     {
         return $this->findAll();
     }
+
+    // Define the relationship with the product_subcategories table
+    public function getProductsBySubcategorySlug($slug)
+    {
+        return $this->select('products.*')
+                    ->join('product_subcategories', 'product_subcategories.subcategory_id = products.subcategory_id')
+                    ->where('product_subcategories.slug', $slug)
+                    ->findAll();
+    }
+    
     public function getProductBySlug($slug)
     {
         $slug = urldecode($slug);

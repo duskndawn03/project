@@ -137,16 +137,16 @@
     <div class="row g-0">
       <!-- First Grid: Top Category List -->
       <div class="col-md-2">
-        <h4 class="mb-4">Product Categories</h4>
+        <h5 class="mb-4">Product Categories</h5>
         <div class="list-group">
           <?php foreach ($categories as $category): ?>
             <div class="list-group-item category" onclick="toggleSubcategories(this)">
-              <h5><?= $category['category_name'] ?></h5> <span class="arrow">&#8594;</span>
+              <h6><a style="text-decoration: none; color: black;" href="<?= site_url('supply/products/category/'.$category['slug'])?>"><?= $category['category_name'] ?></a></h6> <span class="arrow">&#8594;</span>
               <ul class="list-unstyled subcategory-list ms-3">
                 <?php foreach ($subcategories as $subcategory): ?>
                   <?php if ($subcategory['category_id'] == $category['category_id']): ?>
                     <li>
-                      <a href="<?= base_url('supply/products/'.$subcategory['slug']); ?>">
+                      <a href="<?= base_url('supply/products/sub-category/'.$subcategory['slug']); ?>">
                         <?= $subcategory['subcategory_name'] ?>
                       </a>
                     </li>

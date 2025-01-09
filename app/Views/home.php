@@ -192,7 +192,7 @@
                 <?php if (isset($products) && !empty($products)): ?>
                   <?php foreach ($products as $product): ?>
                     <div class="card" style="width: 18rem;">
-                      <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
+                      <img src="<?= $product['product_image_path']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
                       <div class="card-body">
                         <h6 class="card-title"><?= $product['subcategory_id']; ?></h6>
                         <p class="card-text">$ <?= $product['current_price']; ?></p>
@@ -210,7 +210,7 @@
                 <?php if (isset($products) && !empty($products)): ?>
                   <?php foreach ($products as $product): ?>
                     <div class="card">
-                      <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
+                      <img src="<?= $product['product_image_path']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
                       <div class="card-body">
                         <h6 class="card-title"><?= $product['subcategory_id']; ?></h6>
                         <p class="card-text">$ <?= $product['current_price']; ?></p>
@@ -230,7 +230,7 @@
                 <?php if (isset($products) && !empty($products)): ?>
                   <?php foreach ($products as $product): ?>
                     <div class="card" style="width: 18rem;">
-                      <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
+                      <img src="<?= $product['product_image_path']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
                       <div class="card-body">
                         <h6 class="card-title"><?= $product['subcategory_id']; ?></h6>
                         <p class="card-text">$ <?= $product['current_price']; ?></p>
@@ -248,7 +248,7 @@
                 <?php if (isset($products) && !empty($products)): ?>
                   <?php foreach ($products as $product): ?>
                     <div class="card">
-                      <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
+                      <img src="<?= $product['product_image_path']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
                       <div class="card-body">
                         <h6 class="card-title"><?= $product['subcategory_id']; ?></h6>
                         <p class="card-text">$ <?= $product['current_price']; ?></p>
@@ -268,7 +268,7 @@
                 <?php if (isset($products) && !empty($products)): ?>
                   <?php foreach ($products as $product): ?>
                     <div class="card" style="width: 18rem;">
-                      <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
+                      <img src="<?= $product['product_image_path']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
                       <div class="card-body">
                         <h6 class="card-title"><?= $product['subcategory_id']; ?></h6>
                         <p class="card-text">$ <?= $product['current_price']; ?></p>
@@ -286,7 +286,7 @@
                 <?php if (isset($products) && !empty($products)): ?>
                   <?php foreach ($products as $product): ?>
                     <div class="card">
-                      <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
+                      <img src="<?= $product['product_image_path']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
                       <div class="card-body">
                         <h6 class="card-title"><?= $product['subcategory_id']; ?></h6>
                         <p class="card-text">$ <?= $product['current_price']; ?></p>
@@ -306,7 +306,7 @@
                 <?php if (isset($products) && !empty($products)): ?>
                   <?php foreach ($products as $product): ?>
                     <div class="card" style="width: 18rem;">
-                      <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
+                      <img src="<?= $product['product_image_path']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
                       <div class="card-body">
                         <h6 class="card-title"><?= $product['subcategory_id']; ?></h6>
                         <p class="card-text">$ <?= $product['current_price']; ?></p>
@@ -324,7 +324,7 @@
                 <?php if (isset($products) && !empty($products)): ?>
                   <?php foreach ($products as $product): ?>
                     <div class="card">
-                      <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
+                      <img src="<?= $product['product_image_path']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
                       <div class="card-body">
                         <h6 class="card-title"><?= $product['subcategory_id']; ?></h6>
                         <p class="card-text">$ <?= $product['current_price']; ?></p>
@@ -344,7 +344,7 @@
                 <?php if (isset($products) && !empty($products)): ?>
                   <?php foreach ($products as $product): ?>
                     <div class="card" style="width: 18rem;">
-                      <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
+                      <img src="<?= $product['product_image_path']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
                       <div class="card-body">
                         <h6 class="card-title"><?= $product['subcategory_id']; ?></h6>
                         <p class="card-text">$ <?= $product['current_price']; ?></p>
@@ -362,7 +362,7 @@
                 <?php if (isset($products) && !empty($products)): ?>
                   <?php foreach ($products as $product): ?>
                     <div class="card">
-                      <img src="<?= $product['product_image']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
+                      <img src="<?= $product['product_image_path']; ?>" class="card-img-top" alt="<?= $product['product_name']; ?>">
                       <div class="card-body">
                         <h6 class="card-title"><?= $product['subcategory_id']; ?></h6>
                         <p class="card-text">$ <?= $product['current_price']; ?></p>
