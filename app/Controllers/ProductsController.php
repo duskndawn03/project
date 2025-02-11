@@ -26,21 +26,40 @@ class ProductsController extends BaseController
     }
     public function index()
     {
+        // Fetch all categories
         $categories = $this->categoryModel->findAll();
+
+        // Fetch products grouped by category
+        $productsByCategory = [];
+        foreach ($categories as $category) {
+            $productsByCategory[$category['category_id']] = $this->productsModel
+                ->select('products.*, product_subcategories.subcategory_name, product_categories.category_name')
+                ->join('product_subcategories', 'products.subcategory_id = product_subcategories.subcategory_id')
+                ->join('product_categories', 'product_subcategories.category_id = product_categories.category_id')
+                ->where('product_categories.category_id', $category['category_id'])
+                ->findAll();
+        }
+
+        // Fetch subcategories with their parent categories
         $subcategories = $this->subcategoryModel
             ->select('product_subcategories.*, product_categories.category_name')
             ->join('product_categories', 'product_subcategories.category_id = product_categories.category_id')
             ->findAll();
+
+        // Fetch slider images and bullet images
         $sliderimages = $this->sliderimagesModel->getAllImages();
         $sliderbulletimages = $this->sliderbulletimagesModel->getAllBulletImages();
 
+        // Pass data to the view
         return view('products/index', [
             'categories' => $categories,
             'subcategories' => $subcategories,
             'sliderimages' => $sliderimages,
-            'sliderbulletimages' => $sliderbulletimages
+            'sliderbulletimages' => $sliderbulletimages,
+            'productsByCategory' => $productsByCategory,
         ]);
     }
+
 
     public function showAllByCategory($slug)
     {

@@ -33,6 +33,11 @@ $routes->get('/supply/products', 'ProductsController::index');
 $routes->get('/supply/products/category/(:segment)', 'ProductsController::showAllByCategory/$1');
 $routes->get('/supply/products/sub-category/(:segment)', 'ProductsController::showAllBySubcategory/$1');
 $routes->get('/supply/products/details/(:segment)', 'ProductsController::details/$1');
+
+$routes->get('/seller/seller-reg', 'SellerController::step1');
+$routes->post('/seller/send-otp', 'SellerController::sendOtp');
+
+
 $routes->get('/supply/business', 'BusinessController::index');
 
 

@@ -18,6 +18,10 @@
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
+  <!-- Slick Carousel CSS -->
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
   <!-- Start WOWSlider.com HEAD section -->
   <link rel="stylesheet" type="text/css" href="https://wowslider.com/sliders/demo-23/engine1/style.css" />
   <!-- <script type="text/javascript" src="engine1/jquery.js"></script> -->
@@ -141,12 +145,12 @@
         <div class="list-group">
           <?php foreach ($categories as $category): ?>
             <div class="list-group-item category" onclick="toggleSubcategories(this)">
-              <h6><a style="text-decoration: none; color: black;" href="<?= site_url('supply/products/category/'.$category['slug'])?>"><?= $category['category_name'] ?></a></h6> <span class="arrow">&#8594;</span>
+              <h6><a style="text-decoration: none; color: black;" href="<?= site_url('supply/products/category/' . $category['slug']) ?>"><?= $category['category_name'] ?></a></h6> <span class="arrow">&#8594;</span>
               <ul class="list-unstyled subcategory-list ms-3">
                 <?php foreach ($subcategories as $subcategory): ?>
                   <?php if ($subcategory['category_id'] == $category['category_id']): ?>
                     <li>
-                      <a href="<?= base_url('supply/products/sub-category/'.$subcategory['slug']); ?>">
+                      <a href="<?= base_url('supply/products/sub-category/' . $subcategory['slug']); ?>">
                         <?= $subcategory['subcategory_name'] ?>
                       </a>
                     </li>
@@ -212,7 +216,7 @@
               <img src="https://www.tradeindia.com/images/default/post-card.png" class="card-img-top" alt="Card 1">
               <!-- Button positioned on top of the image -->
               <button class="btn btn-primary position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                Click Me
+                Be a buyer
               </button>
             </div>
           </div>
@@ -222,9 +226,7 @@
           <div class="col-12">
             <div class="card position-relative">
               <img src="https://www.tradeindia.com/images/default/sell-card.png" class="card-img-top" alt="Card 3">
-              <button class="btn btn-primary position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                Click Me
-              </button>
+              <a class="btn btn-primary position-absolute" style="top: 50%; left: 50%; transform: translate(-50%, -50%);" href="<?= base_url('seller/seller-reg'); ?>">Be a seller</a>
             </div>
           </div>
 
@@ -356,36 +358,41 @@
 
 
   <div class="container-fluid my-4">
-    <div class="row g-0">
-      <!-- Left section with image and button -->
-      <div class="position-relative col-md-3 d-flex flex-column align-items-center text-center">
-        <img src="https://image.made-in-china.com/258f1j00tQaEUjTlDthS/Sporting-Goods.webp" alt="Sports Equipment" class="img-fluid position-absolute" style="top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
-        <h3 class="mt-3" style="position: relative; z-index: 2;">Sporting Goods & Recreation</h3>
-        <button class="btn btn-danger mb-3" style="position: relative; z-index: 2;">Source Now</button>
-      </div>
-
-      <?php
-      for ($i = 0; $i < 3; $i++) {
-        echo '<div class="col-md-3">
-        <div class="card">
-          <img height="200px" src="https://image.made-in-china.com/258f1j00tQaEUjTlDthS/Sporting-Goods.webp" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h6 class="card-title">Card title</h6>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">An item</li>
-              <li class="list-group-item">A second item</li>
-              <li class="list-group-item">A third item</li>
-              <li class="list-group-item">A fourth item</li>
-            </ul>
+    <?php foreach ($categories as $category): ?>
+      <div class="row g-0">
+        <!-- Left section with image and button -->
+        <div class="col-md-3">
+          <div class="card position-relative">
+            <img src="https://via.placeholder.com/150" class="card-img-top" alt="<?= esc($category['category_name']) ?>">
+            <div class="card-img-overlay d-flex flex-column justify-content-center">
+              <h5 class="card-title bg-opacity-75 p-2 rounded"><?= esc($category['category_name']) ?></h5>
+              <!-- <p class="card-text text-white bg-dark bg-opacity-50 p-2 rounded">
+              Some quick example text to build on the card title and make up the bulk of the card's content.
+            </p> -->
+              <a href="<?= site_url('supply/products/category/' . $category['slug']) ?>" class="btn btn-outline-primary mt-2">Shop now</a>
+            </div>
           </div>
         </div>
-      </div>';
-      }
-      ?>
-
-    </div>
+        <div class="col-md-9">
+          <div class="responsive">
+            <?php if (!empty($productsByCategory[$category['category_id']])): ?>
+              <?php foreach ($productsByCategory[$category['category_id']] as $product): ?>
+                <div class="card">
+                  <img src="https://via.placeholder.com/150" class="card-img-top" alt="<?= esc($product['product_name']) ?>">
+                  <div class="card-body">
+                    <h6 class="card-title"><?= esc($product['product_name']) ?></h6>
+                    <p class="card-text">$<?= esc($product['current_price']) ?></p>
+                  </div>
+                </div>
+              <?php endforeach; ?>
+            <?php else: ?>
+              <p class="text-center">No products available.</p>
+            <?php endif; ?>
+          </div>
+        </div>
+      </div>
+    <?php endforeach; ?>
   </div>
-
 
   <div class="container-fluid my-4">
     <div class="card">
@@ -573,6 +580,48 @@
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <!-- Slick Carousel JS -->
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('.responsive').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        arrows: false, // Disable arrows
+        responsive: [{
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+          // You can unslick at a given breakpoint now by adding:
+          // settings: "unslick"
+          // instead of a settings object
+        ]
+      });
+    });
+  </script>
 
 </body>
 
